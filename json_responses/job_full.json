@@ -1,0 +1,27 @@
+{
+    "job": {
+      "id": 101,
+      "title": "Frontend Developer",
+      "salary": {
+        "min": 85000,
+        "max": 105000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "JavaScript",
+        "React",
+        "CSS",
+        "HTML",
+        "Git"
+      ],
+      "description": "We are looking for a Frontend Developer to design and implement user-facing features for our web applications.",
+      "location": "Remote",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-09-15",
+        "end_date": "2024-12-15"
+      },
+      "applied_count": 42
+    }
+  }
