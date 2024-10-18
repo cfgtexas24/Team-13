@@ -17,11 +17,16 @@
       "jobs": [
         {
           "job_id": 101,
-          "title": "Senior Software Engineer",
+          "title": "Frontend Developer",
           "location": "Remote",
           "start_date": "2024-09-15",
           "end_date": "2024-12-15",
-          "salary": "$120,000"
+          "salary": {
+            "min": 85000,
+            "max": 105000,
+            "currency": "USD",
+            "type": "Annual"
+            }
         },
         {
           "job_id": 102,
@@ -29,7 +34,12 @@
           "location": "San Francisco, CA",
           "start_date": "2024-10-01",
           "end_date": "2025-01-01",
-          "salary": "$110,000"
+          "salary": {
+            "min": 85000,
+            "max": 105000,
+            "currency": "USD",
+            "type": "Annual"
+            }
         }
       ]
     }
