@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material";
 
+const theme = createTheme()
 export default function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div>
       <h1>Basic Example</h1>
 
@@ -24,6 +27,7 @@ export default function App() {
         </Route>
       </Routes>
     </div>
+    </ThemeProvider>
   );
 }
 
