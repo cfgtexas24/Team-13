@@ -1,0 +1,46 @@
+{
+    "employer": {
+      "id": 67890,
+      "profile": {
+        "company_name": "Tech Solutions Inc.",
+        "location": "San Francisco, CA",
+        "industry": "Information Technology",
+        "description": "Tech Solutions Inc. specializes in providing cutting-edge software solutions for businesses."
+      },
+    "target_employees": [
+        "JavaScript",
+        "Python",
+        "Machine Learning",
+        "Cloud Computing",
+        "Project Management"
+    ],
+      "jobs": [
+        {
+          "job_id": 101,
+          "title": "Frontend Developer",
+          "location": "Remote",
+          "start_date": "2024-09-15",
+          "end_date": "2024-12-15",
+          "salary": {
+            "min": 85000,
+            "max": 105000,
+            "currency": "USD",
+            "type": "Annual"
+            }
+        },
+        {
+          "job_id": 102,
+          "title": "Data Scientist",
+          "location": "San Francisco, CA",
+          "start_date": "2024-10-01",
+          "end_date": "2025-01-01",
+          "salary": {
+            "min": 85000,
+            "max": 105000,
+            "currency": "USD",
+            "type": "Annual"
+            }
+        }
+      ]
+    }
+  }
