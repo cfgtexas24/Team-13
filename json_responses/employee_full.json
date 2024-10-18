@@ -1,0 +1,45 @@
+{
+    "employee": {
+      "id": 12345,
+      "name": "John Doe",
+      "location": "Austin, TX",
+      "skills": [
+        "JavaScript",
+        "Python",
+        "Machine Learning",
+        "Cloud Computing"
+      ],
+      "demographic": {
+        "age": 30,
+        "gender": "Male",
+        "ethnicity": "Asian"
+      },
+      "barriers": [
+        "Limited access to training resources",
+        "Language proficiency"
+      ],
+      "headshot": "https://example.com/headshots/johndoe.jpg",
+      "certifications": [
+        {
+          "name": "AWS Certified Solutions Architect",
+          "issued_by": "Amazon",
+          "date_issued": "2023-05-10"
+        },
+        {
+          "name": "Google Professional Data Engineer",
+          "issued_by": "Google",
+          "date_issued": "2022-11-15"
+        }
+      ],
+      "applications": [
+        {
+          "app_name": "Slack",
+          "status": "Active"
+        },
+        {
+          "app_name": "Zoom",
+          "status": "Inactive"
+        }
+      ]
+    }
+  }
