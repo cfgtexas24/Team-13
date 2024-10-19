@@ -21,6 +21,7 @@ import EmployeeDash from "./components/candidate/EmployeeDash";
 import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 import Feedback from "./components/employer/feedback";
+import UserRoadmap from "./components/candidate/userRoadmap";
 
 function App() {
   return (
