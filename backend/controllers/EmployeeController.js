@@ -82,3 +82,22 @@ export const getAllApplications = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
+
+// create application
+export const createApplication = async (req, res) => {
+    try {
+        const {} = req.body;
+
+        const response = {
+            jobName,
+            company,
+            location,
+            salary,
+            description,
+            message: "Job data successfully received and packaged."
+        };
+        res.status(200).json(response);
+        } catch (error) {
+            res.status(400).json({ message: 'Invalid request body', error: error.message });
+      }
+}
