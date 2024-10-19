@@ -1,4 +1,3 @@
-import fs from 'fs/promises'; 
 import createJob from '../lib/actions/job.actions.js'; 
 
 export const createJobRoute = async (req, res) => {
