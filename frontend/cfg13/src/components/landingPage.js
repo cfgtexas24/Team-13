@@ -4,6 +4,7 @@ import rebirthTeam from '../assets/rebirth-team.jpeg';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import PeopleIcon from '@mui/icons-material/People';
 import WorkIcon from '@mui/icons-material/Work';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
@@ -25,10 +26,12 @@ const LandingPage = () => {
           <h1 className="text-5xl font-bold mb-4">It's <span className="text-yellow-500">never</span> too late to start over. You don't have to see the whole journey,
             come take the <span className="text-yellow-500">first step</span> with us.</h1>
           <p className="text-xl text-gray-600 mb-8">ReBirth Empowerment Education can elevate your career to the next level</p>
-          <div className="space-x-4">
-            <button className="bg-blue-900 text-white px-6 py-3 rounded">Join Now</button>
-            <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded">Donate</button>
-          </div>
+          <Link to= "onboarding/candidate">
+            <div className="space-x-4">
+              <button className="bg-blue-900 text-white px-6 py-3 rounded">Join Now</button>
+              <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded">Donate</button>
+            </div>
+          </Link>
         </div>
         <div className="md:w-1/2 relative">
             <img

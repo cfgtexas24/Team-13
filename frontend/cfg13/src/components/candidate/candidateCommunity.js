@@ -10,7 +10,7 @@ function CandidateCommunity() {
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
         {rooms.map((room) => (
-          <Link key={room} to={`/candidate/community/${room}`} style={{ textDecoration: 'none' }}>
+          <Link key={room} to={`candidate/community/${room}`} style={{ textDecoration: 'none' }}>
             <div style={{
               padding: '20px',
               border: '1px solid #ddd',
