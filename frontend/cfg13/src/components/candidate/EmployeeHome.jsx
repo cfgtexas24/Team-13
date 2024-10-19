@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Navbar from '../navBars/employerNavbar'
+import Navbar from '../navBars/candidateNavBar'
 
 const EmployerHome = () => {
   return (

@@ -37,6 +37,7 @@ function App() {
           </Route>
           <Route path="candidate" element={<EmployeeHome />}>
             <Route index path="dashboard" element={<EmployeeDash />} />
+
           </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
