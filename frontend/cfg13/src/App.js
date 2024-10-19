@@ -16,6 +16,7 @@ import EmployerOnboarding from './forms/EmployerOnboarding'
 
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
+import CreateJobPage from "./components/employer/createJobPage";
 
 import EmployeeDash from "./components/candidate/EmployeeDash";
 import EmployeeHome from "./components/candidate/EmployeeHome";
@@ -40,10 +41,11 @@ function App() {
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
+            <Route path="createJobPage" element={<CreateJobPage />} />
           </Route>
 
           <Route path="candidate" element={<EmployeeHome />}>
-            <Route index path="dashboard" element={<EmployeeDash />} />
+            <Route index element={<EmployeeDash />} />
             <Route path="jobs" element={<Jobs />} />
           </Route>
 

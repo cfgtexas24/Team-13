@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 <Link to="/employer" className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-medium text-white">Dashboard</Link>
-                <Link to="/createjob" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Create Job</Link>
+                <Link to="/employer/createJobPage" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Create Job</Link>
                 <Link to="feedbackForm" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Feedback</Link>
                 
               </div>
