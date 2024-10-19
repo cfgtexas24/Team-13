@@ -165,133 +165,134 @@ const UserRoadmap = () => {
   );
 
   return (
-    <Box sx={{ maxWidth: 900, margin: 'auto', p: 3 }}>
-      <Typography variant="h4" gutterBottom sx={{ mb: 4 }}>
-        Professional Certifications
-      </Typography>
-      
-      {/* Google Certifications Section */}
-      <Typography variant="h5" gutterBottom sx={{ mb: 3, mt: 4, color: '#4285F4' }}>
-        Google Certifications
-      </Typography>
-      <Stack spacing={2} sx={{ mb: 4 }}>
-        {certificates
-          .filter(cert => cert.provider === "Google")
-          .map((cert, index) => (
-            <CertificateCard key={index} cert={cert} />
-          ))}
-      </Stack>
+    <Box sx={{ bgcolor: '#f5f5f5', minHeight: '100vh', paddingTop: 3, paddingBottom: 3 }}>
+      <Box sx={{ maxWidth: 900, margin: 'auto', p: 3 }}>
+        <Typography variant="h4" gutterBottom sx={{ mb: 4 }} >
+          <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
+            Professional Certifications
+          </h1>
+        </Typography>
 
-      {/* NRF Certifications Section */}
-      <Typography variant="h5" gutterBottom sx={{ mb: 3, mt: 4, color: '#00848E' }}>
-        National Retail Foundation Certifications
-      </Typography>
-      <Stack spacing={2}>
-        {certificates
-          .filter(cert => cert.provider === "National Retail Foundation")
-          .map((cert, index) => (
-            <CertificateCard key={index} cert={cert} />
-          ))}
-      </Stack>
+        <h3 className="text-xl font-semibold text-blue-600 group-hover:text-blue-700 mb-4">
+          Google Certifications
+        </h3>
+        <Stack spacing={2} sx={{ mb: 4 }}>
+          {certificates
+            .filter(cert => cert.provider === "Google")
+            .map((cert, index) => (
+              <CertificateCard key={index} cert={cert} />
+            ))}
+        </Stack>
 
-      {/* Detail Modal */}
-      <Modal
-        open={Boolean(selectedCert)}
-        onClose={() => setSelectedCert(null)}
-        aria-labelledby="certificate-modal-title"
-      >
-        <Box sx={modalStyle}>
-          {selectedCert && (
-            <>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', mb: 2 }}>
-                <Typography id="certificate-modal-title" variant="h5" component="h2">
-                  {selectedCert.title}
+        <h3 className="text-xl font-semibold text-[#00848E] group-hover:text-blue-700 mb-4">
+          National Retail Foundation Certifications
+        </h3>
+        <Stack spacing={2}>
+          {certificates
+            .filter(cert => cert.provider === "National Retail Foundation")
+            .map((cert, index) => (
+              <CertificateCard key={index} cert={cert} />
+            ))}
+        </Stack>
+
+        <Modal
+          open={Boolean(selectedCert)}
+          onClose={() => setSelectedCert(null)}
+          aria-labelledby="certificate-modal-title"
+        >
+          <Box sx={modalStyle}>
+            {selectedCert && (
+              <>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', mb: 2 }}>
+                  <Typography id="certificate-modal-title" variant="h5" component="h2">
+                    {selectedCert.title}
+                  </Typography>
+                  <IconButton onClick={() => setSelectedCert(null)} size="small">
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
+                
+                <Typography variant="body1" sx={{ mb: 3 }}>
+                  {selectedCert.description}
                 </Typography>
-                <IconButton onClick={() => setSelectedCert(null)} size="small">
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-              
-              <Typography variant="body1" sx={{ mb: 3 }}>
-                {selectedCert.description}
-              </Typography>
 
-              <Divider sx={{ my: 2 }} />
-              
-              <Typography variant="h6" sx={{ mb: 2 }}>Key Information</Typography>
-              <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 2, mb: 3 }}>
-                <Box>
-                  <Typography variant="subtitle2" color="text.secondary">Duration</Typography>
-                  <Typography>{selectedCert.estimatedTime}</Typography>
+                <Divider sx={{ my: 2 }} />
+                
+                <Typography variant="h6" sx={{ mb: 2 }}>Key Information</Typography>
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 2, mb: 3 }}>
+                  <Box>
+                    <Typography variant="subtitle2" color="text.secondary">Duration</Typography>
+                    <Typography>{selectedCert.estimatedTime}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography variant="subtitle2" color="text.secondary">Difficulty</Typography>
+                    <Typography>{selectedCert.difficulty}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography variant="subtitle2" color="text.secondary">Price</Typography>
+                    <Typography>{selectedCert.price}</Typography>
+                  </Box>
                 </Box>
-                <Box>
-                  <Typography variant="subtitle2" color="text.secondary">Difficulty</Typography>
-                  <Typography>{selectedCert.difficulty}</Typography>
-                </Box>
-                <Box>
-                  <Typography variant="subtitle2" color="text.secondary">Price</Typography>
-                  <Typography>{selectedCert.price}</Typography>
-                </Box>
-              </Box>
 
-              <Typography variant="h6" sx={{ mb: 2 }}>Skills You'll Learn</Typography>
-              <Box sx={{ mb: 3 }}>
-                {selectedCert.skills.map((skill, index) => (
-                  <Chip 
-                    key={index} 
-                    label={skill} 
-                    sx={{ m: 0.5 }}
-                    variant="outlined"
-                  />
-                ))}
-              </Box>
-
-              <Typography variant="h6" sx={{ mb: 2 }}>Course Modules</Typography>
-              <List>
-                {selectedCert.courseModules.map((module, index) => (
-                  <ListItem key={index} sx={{ py: 1 }}>
-                    <ListItemText 
-                      primary={module.name}
-                      secondary={
-                        <Chip 
-                          label={module.status}
-                          size="small"
-                          color={
-                            module.status === "Completed" ? "success" :
-                            module.status === "In Progress" ? "warning" : "default"
-                          }
-                          sx={{ mt: 1 }}
-                        />
-                      }
+                <Typography variant="h6" sx={{ mb: 2 }}>Skills You'll Learn</Typography>
+                <Box sx={{ mb: 3 }}>
+                  {selectedCert.skills.map((skill, index) => (
+                    <Chip 
+                      key={index} 
+                      label={skill} 
+                      sx={{ m: 0.5 }}
+                      variant="outlined"
                     />
-                  </ListItem>
-                ))}
-              </List>
+                  ))}
+                </Box>
 
-              <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
-                <Button 
-                  variant="outlined" 
-                  onClick={() => setSelectedCert(null)}
-                >
-                  Close
-                </Button>
-                <Button 
-                  variant="contained" 
-                  endIcon={<OpenInNewIcon />}
-                  sx={{ 
-                    bgcolor: selectedCert.provider === 'Google' ? '#4285F4' : '#00848E',
-                    '&:hover': {
-                      bgcolor: selectedCert.provider === 'Google' ? '#3367d6' : '#006d75'
-                    }
-                  }}
-                >
-                  Go to Course
-                </Button>
-              </Box>
-            </>
-          )}
-        </Box>
-      </Modal>
+                <Typography variant="h6" sx={{ mb: 2 }}>Course Modules</Typography>
+                <List>
+                  {selectedCert.courseModules.map((module, index) => (
+                    <ListItem key={index} sx={{ py: 1 }}>
+                      <ListItemText 
+                        primary={module.name}
+                        secondary={
+                          <Chip 
+                            label={module.status}
+                            size="small"
+                            color={
+                              module.status === "Completed" ? "success" :
+                              module.status === "In Progress" ? "warning" : "default"
+                            }
+                            sx={{ mt: 1 }}
+                          />
+                        }
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+
+                <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+                  <Button 
+                    variant="outlined" 
+                    onClick={() => setSelectedCert(null)}
+                  >
+                    Close
+                  </Button>
+                  <Button 
+                    variant="contained" 
+                    endIcon={<OpenInNewIcon />}
+                    sx={{ 
+                      bgcolor: selectedCert.provider === 'Google' ? '#4285F4' : '#00848E',
+                      '&:hover': {
+                        bgcolor: selectedCert.provider === 'Google' ? '#3367d6' : '#006d75'
+                      }
+                    }}
+                  >
+                    Go to Course
+                  </Button>
+                </Box>
+              </>
+            )}
+          </Box>
+        </Modal>
+      </Box>
     </Box>
   );
 };

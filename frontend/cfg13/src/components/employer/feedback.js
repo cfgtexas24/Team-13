@@ -1,141 +1,131 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function FeedbackForm() {
-  const [employerName, setEmployerName] = useState("");
-  const [employeeName, setEmployeeName] = useState("");
-  const [feedback, setFeedback] = useState("");
-  const [rating, setRating] = useState(1); // Default rating is 1
+const FeedbackForm = () => {
+  const navigate = useNavigate();
+
+  const [feedbackData, setFeedbackData] = useState({
+    yourName: '',
+    employeeName: '',
+    feedback: '',
+    rating: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFeedbackData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      employerName,
-      employeeName,
-      feedback,
-      rating,
-    });
+    console.log('Feedback data:', feedbackData);
 
-    // Reset the form after submission
-    setEmployerName("");
-    setEmployeeName("");
-    setFeedback("");
-    setRating(1);
+    // Send feedback data to the backend
+    fetch('http://localhost:4000/api/submitFeedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(feedbackData),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log('Feedback submitted:', data))
+      .catch((error) => console.error('Error:', error));
+
+    // Redirect to a confirmation or home page
+    navigate('/thank-you');
   };
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        fontFamily:
-          '"Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif',
-      }}
-    >
-      <h2
-        style={{
-          textAlign: "center",
-          color: "#333",
-          marginBottom: "20px",
-          fontSize: "30px",
-        }}
-      >
-        Employee Feedback Form
-      </h2>
-      <form
-        onSubmit={handleSubmit}
-        style={{ maxWidth: "400px", margin: "auto" }}
-      >
-        <div style={{ marginBottom: "15px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>
-            Your Name:
-          </label>
-          <input
-            type="text"
-            value={employerName}
-            onChange={(e) => setEmployerName(e.target.value)}
-            required
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "4px",
-              border: "1px solid #ddd",
-            }}
-          />
-        </div>
+    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-xl mx-auto">
+        <h1 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+          Employee Feedback Form
+        </h1>
+        <div className="bg-white shadow rounded-lg">
+          <form onSubmit={handleSubmit} className="space-y-6 p-8">
+            <div>
+              <label htmlFor="yourName" className="block text-sm font-medium text-gray-700">
+                Your Name
+              </label>
+              <input
+                type="text"
+                name="yourName"
+                id="yourName"
+                value={feedbackData.yourName}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
 
-        <div style={{ marginBottom: "15px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>
-            Employee's Name:
-          </label>
-          <input
-            type="text"
-            value={employeeName}
-            onChange={(e) => setEmployeeName(e.target.value)}
-            required
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "4px",
-              border: "1px solid #ddd",
-            }}
-          />
-        </div>
+            <div>
+              <label htmlFor="employeeName" className="block text-sm font-medium text-gray-700">
+                Employee's Name
+              </label>
+              <input
+                type="text"
+                name="employeeName"
+                id="employeeName"
+                value={feedbackData.employeeName}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
 
-        <div style={{ marginBottom: "15px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>
-            Feedback:
-          </label>
-          <textarea
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-            required
-            rows="4"
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "4px",
-              border: "1px solid #ddd",
-            }}
-          ></textarea>
-        </div>
+            <div>
+              <label htmlFor="feedback" className="block text-sm font-medium text-gray-700">
+                Feedback
+              </label>
+              <textarea
+                name="feedback"
+                id="feedback"
+                rows="4"
+                value={feedbackData.feedback}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              ></textarea>
+            </div>
 
-        <div style={{ marginBottom: "15px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>
-            Rating:
-          </label>
-          <select
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "4px",
-              border: "1px solid #ddd",
-            }}
-          >
-            <option value="1">1 - Poor</option>
-            <option value="2">2 - Fair</option>
-            <option value="3">3 - Good</option>
-            <option value="4">4 - Very Good</option>
-            <option value="5">5 - Excellent</option>
-          </select>
-        </div>
+            <div>
+              <label htmlFor="rating" className="block text-sm font-medium text-gray-700">
+                Rating
+              </label>
+              <select
+                name="rating"
+                id="rating"
+                value={feedbackData.rating}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              >
+                <option value="">Select Rating</option>
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+              </select>
+            </div>
 
-        <button
-          type="submit"
-          style={{
-            padding: "10px 15px",
-            backgroundColor: "#1E3A8A",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
-          Submit Feedback
-        </button>
-      </form>
+            <div>
+              <button
+                type="submit"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-900 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+              >
+                Submit Feedback
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default FeedbackForm;

@@ -29,8 +29,7 @@ async function loadJobData() {
 export const getEmployeeById = async (req, res) => {
     try {
         const employeeId = parseInt(req.params.id, 10); // Convert to a number
-        const data = await loadEmployeeListData
-    ();
+        const data = await loadEmployeeListData();
         
         const employee = data.employees.find((employee) => employee.id === employeeId); // Match the ID correctly
         
@@ -164,3 +163,15 @@ export const getPotentialJobs = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error in getPotentialJobs' });
     }
 };
+
+// fetch all job postings
+export const getAllJobPostings = async (req, res) => {
+    try {
+        const data = await loadJobData();
+        const jobPostings = data.jobs;
+        res.json(jobPostings);
+    } catch (error) {
+        console.error('Error fetching job data:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}

@@ -1,86 +1,215 @@
-import React, { useState } from 'react';
-import { FaTrash } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { FaPlus } from 'react-icons/fa';
 
-const CreateJobPage = () => {
-  const [jobTitle, setJobTitle] = useState('');
-  const [jobDescription, setJobDescription] = useState('');
+const JobCreationForm = () => {
+  const [formData, setFormData] = useState({
+    title: '',
+    location: '',
+    startDate: '',
+    endDate: '',
+    salary: '',
+    description: '',
+    employer: '6713b1aaddcdc4ebfd3c041f'
+  });
   const [jobs, setJobs] = useState([]);
-  const navigate = useNavigate();
 
-  const handleAddJob = () => {
-    if (jobTitle.trim() && jobDescription.trim()) {
-      const newJob = { id: Date.now(), title: jobTitle, description: jobDescription };
-      setJobs([newJob, ...jobs]);
-      setJobTitle('');
-      setJobDescription('');
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  const fetchJobs = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/api/jobs');
+      const data = await response.json();
+      setJobs(data);
+    } catch (error) {
+      console.error('Error fetching jobs:', error);
     }
   };
 
-  const handleDeleteJob = (id) => {
-    setJobs(jobs.filter(job => job.id !== id));
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleJobClick = (id) => {
-    navigate(`/employerJobApplicants`); //add id here
+  const handleAddJob = async (event) => {
+    event.preventDefault();
+    console.log('Form data:', formData);
+    try {
+      const response = await fetch('http://localhost:4000/api/createJob', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      console.log('Job created:', data);
+      setJobs((prevJobs) => [...prevJobs, data.job]);
+      setFormData({
+        title: '',
+        location: '',
+        startDate: '',
+        endDate: '',
+        salary: '',
+        description: '',
+        employer: '6713b1aaddcdc4ebfd3c041f'
+      });
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleDeleteJob = async (id) => {
+    try {
+      await fetch(`http://localhost:4000/api/jobs/${id}`, {
+        method: 'DELETE',
+      });
+      setJobs((prevJobs) => prevJobs.filter((job) => job._id !== id));
+    } catch (error) {
+      console.error('Error deleting job:', error);
+    }
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Create Job Roles</h1>
-
-      <div className="mb-6 p-4 bg-white rounded shadow-md">
-        <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Job Title</label>
-          <input
-            type="text"
-            value={jobTitle}
-            onChange={(e) => setJobTitle(e.target.value)}
-            placeholder="Enter job title"
-            className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Job Description</label>
-          <textarea
-            value={jobDescription}
-            onChange={(e) => setJobDescription(e.target.value)}
-            placeholder="Enter job description"
-            className="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-            rows="3"
-          ></textarea>
-        </div>
-        <button
-          onClick={handleAddJob}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-        >
-          Add Job
-        </button>
+    <div className='min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8'>
+    <div className="max-w-3xl mx-auto">
+      <h1 className="mt-10 text-3xl font-extrabold text-gray-900 mb-8 text-center" style={{ fontFamily: "Roboto, sans-serif", fontSize: "30px" }}>
+        Create Job Roles
+      </h1>
+      <div className="bg-white shadow rounded-lg">
+        <form className="space-y-6 p-8" onSubmit={handleAddJob}>
+          <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+                Job Title
+              </label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={formData.title}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+                Job Location
+              </label>
+              <input
+                id="location"
+                name="location"
+                type="text"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={formData.location}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
+            <div>
+              <label htmlFor="startDate" className="block text-sm font-medium text-gray-700">
+                Start Date
+              </label>
+              <input
+                id="startDate"
+                name="startDate"
+                type="date"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={formData.startDate}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="endDate" className="block text-sm font-medium text-gray-700">
+                End Date
+              </label>
+              <input
+                id="endDate"
+                name="endDate"
+                type="date"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={formData.endDate}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="salary" className="block text-sm font-medium text-gray-700">
+                Salary
+              </label>
+              <input
+                id="salary"
+                name="salary"
+                type="text"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={formData.salary}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+              Job Description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              required
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={formData.description}
+              onChange={handleInputChange}
+            ></textarea>
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              <FaPlus className="mr-2" /> Add Job
+            </button>
+          </div>
+        </form>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {jobs.map((job) => (
-          <div 
-            key={job.id} 
-            className="p-4 bg-white rounded shadow-md relative cursor-pointer hover:shadow-lg transition"
-            onClick={() => handleJobClick(job.id)}
+      <div className="mt-8 mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {jobs?.map((job) => (
+          <div
+            key={job._id}
+            className="bg-white overflow-hidden shadow rounded-lg"
           >
-            <h2 className="text-lg font-semibold">{job.title}</h2>
-            <p className="text-gray-600 mt-2">{job.description}</p>
-            <button
-              onClick={(e) => {
-                e.stopPropagation(); 
-                handleDeleteJob(job.id);
-              }}
-              className="absolute top-2 right-2 text-red-500 hover:text-red-700"
-            >
-              <FaTrash />
-            </button>
+            <div className="px-4 py-5 sm:p-6">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">{job.title}</h3>
+              <div className="mt-2 max-w-xl text-sm text-gray-500">
+                <p><span className="font-medium">Location:</span> {job.location}</p>
+                <p><span className="font-medium">Period:</span> {job.startDate} - {job.endDate}</p>
+                <p><span className="font-medium">Salary:</span> {job.salary}</p>
+                <p className="mt-2">{job.description}</p>
+              </div>
+            </div>
+            <div className="px-4 py-4 sm:px-6">
+              <button
+                onClick={() => handleDeleteJob(job._id)}
+                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         ))}
       </div>
     </div>
+    </div>
   );
 };
 
-export default CreateJobPage;
+export default JobCreationForm;

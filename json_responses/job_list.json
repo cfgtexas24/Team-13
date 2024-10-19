@@ -25,6 +25,7 @@
         "end_date": "2024-12-15"
       },
       "applied_count": 42,
+      "percentMatch": 89,
       "certifications": [
         {
           "name": "Certified Front-End Developer",
@@ -63,6 +64,7 @@
         "end_date": "2024-12-31"
       },
       "applied_count": 57,
+      "percentMatch": 82,
       "certifications": [
         {
           "name": "Certified Node.js Developer",
@@ -101,6 +103,7 @@
         "end_date": "2024-11-30"
       },
       "applied_count": 78,
+      "percentMatch": 93,
       "certifications": [
         {
           "name": "Google Cloud Certified: Professional Cloud Architect",
@@ -139,6 +142,7 @@
         "end_date": "2025-01-31"
       },
       "applied_count": 65,
+      "percentMatch": 78,
       "certifications": [
         {
           "name": "AWS Certified Machine Learning - Specialty",
@@ -151,6 +155,213 @@
           "date_issued": "2022-08-22"
         }
       ]
+    },
+    {
+      "id": 105,
+      "company": "Facebook",
+      "title": "Full Stack Developer",
+      "salary": {
+        "min": 100000,
+        "max": 135000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "GraphQL",
+        "AWS"
+      ],
+      "description": "We are looking for a Full Stack Developer to build end-to-end solutions for our internal tools.",
+      "location": "Remote",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-08-01",
+        "end_date": "2024-12-01"
+      },
+      "applied_count": 45,
+      "percentMatch": 85,
+      "certifications": [
+        {
+          "name": "Certified Full Stack Developer",
+          "issued_by": "Udemy",
+          "date_issued": "2023-01-12"
+        },
+        {
+          "name": "AWS Developer Certification",
+          "issued_by": "AWS",
+          "date_issued": "2022-10-22"
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "company": "Netflix",
+      "title": "DevOps Engineer",
+      "salary": {
+        "min": 115000,
+        "max": 130000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "AWS",
+        "Kubernetes",
+        "Terraform",
+        "Docker"
+      ],
+      "description": "We are seeking a DevOps Engineer to manage our cloud infrastructure and implement CI/CD pipelines.",
+      "location": "Los Angeles, CA",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-10-15",
+        "end_date": "2024-12-31"
+      },
+      "applied_count": 58,
+      "percentMatch": 91,
+      "certifications": [
+        {
+          "name": "AWS Certified DevOps Engineer",
+          "issued_by": "AWS",
+          "date_issued": "2023-05-05"
+        },
+        {
+          "name": "Certified Kubernetes Administrator",
+          "issued_by": "CNCF",
+          "date_issued": "2023-04-10"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "company": "Microsoft",
+      "title": "Software Engineer",
+      "salary": {
+        "min": 95000,
+        "max": 120000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Microservices"
+      ],
+      "description": "We are looking for a Software Engineer to build scalable applications on the Azure platform.",
+      "location": "Redmond, WA",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-09-01",
+        "end_date": "2024-11-30"
+      },
+      "applied_count": 70,
+      "percentMatch": 88,
+      "certifications": [
+        {
+          "name": "Azure Solutions Architect",
+          "issued_by": "Microsoft",
+          "date_issued": "2023-03-15"
+        },
+        {
+          "name": ".NET Developer Certification",
+          "issued_by": "Microsoft",
+          "date_issued": "2022-12-20"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "company": "Apple",
+      "title": "Frontend Developer",
+      "salary": {"min": 85000, "max": 105000, "currency": "USD", "type": "Annual"},
+      "skills": ["JavaScript", "React", "CSS", "HTML", "Git"],
+      "description": "Design and implement user-facing features for our web applications.",
+      "location": "Remote",
+      "duration": "Full-time",
+      "hiring_window": {"start_date": "2024-09-15", "end_date": "2024-12-15"},
+      "percentMatch": 89,
+      "certifications": [{"name": "Certified Front-End Developer", "issued_by": "W3Schools", "date_issued": "2022-07-01"}]
+    },
+    {
+      "id": 102,
+      "company": "Microsoft",
+      "title": "Backend Developer",
+      "salary": {"min": 90000, "max": 120000, "currency": "USD", "type": "Annual"},
+      "skills": ["Node.js", "Express", "MongoDB", "Docker", "Kubernetes"],
+      "description": "Create robust and scalable backend services.",
+      "location": "San Francisco, CA",
+      "duration": "Full-time",
+      "hiring_window": {"start_date": "2024-10-01", "end_date": "2024-12-31"},
+      "percentMatch": 82,
+      "certifications": [{"name": "Certified Node.js Developer", "issued_by": "Node.js Foundation", "date_issued": "2022-09-10"}]
+    },
+    {
+      "id": 103,
+      "company": "Walmart",
+      "title": "Cloud Solutions Architect",
+      "salary": {"min": 115000, "max": 145000, "currency": "USD", "type": "Annual"},
+      "skills": ["Google Cloud Platform", "Terraform", "DevOps", "CI/CD", "Python"],
+      "description": "Help design and implement cloud strategies for enterprise customers.",
+      "location": "Remote",
+      "duration": "Full-time",
+      "hiring_window": {"start_date": "2024-09-20", "end_date": "2024-11-30"},
+      "percentMatch": 93,
+      "certifications": [{"name": "Google Cloud Certified: Professional Cloud Architect", "issued_by": "Google", "date_issued": "2023-02-14"}]
+    },
+    {
+      "id": 104,
+      "company": "Salesforce",
+      "title": "Data Scientist",
+      "salary": {"min": 120000, "max": 150000, "currency": "USD", "type": "Annual"},
+      "skills": ["Python", "Machine Learning", "SQL", "Pandas", "AWS"],
+      "description": "Develop machine learning models and data-driven insights.",
+      "location": "Seattle, WA",
+      "duration": "Full-time",
+      "hiring_window": {"start_date": "2024-11-01", "end_date": "2025-01-31"},
+      "percentMatch": 78,
+      "certifications": [{"name": "AWS Certified Machine Learning - Specialty", "issued_by": "Amazon", "date_issued": "2023-04-05"}]
+    },
+    {
+      "id": 105,
+      "company": "Paycom",
+      "title": "Full Stack Developer",
+      "salary": {"min": 100000, "max": 135000, "currency": "USD", "type": "Annual"},
+      "skills": ["React", "Node.js", "MongoDB", "GraphQL", "AWS"],
+      "description": "Build end-to-end solutions for our internal tools.",
+      "location": "Remote",
+      "duration": "Full-time",
+      "hiring_window": {"start_date": "2024-08-01", "end_date": "2024-12-01"},
+      "percentMatch": 85,
+      "certifications": [{"name": "Certified Full Stack Developer", "issued_by": "Udemy", "date_issued": "2023-01-12"}]
+    },
+    {
+      "id": 106,
+      "company": "The US Army",
+      "title": "DevOps Engineer",
+      "salary": {"min": 115000, "max": 130000, "currency": "USD", "type": "Annual"},
+      "skills": ["AWS", "Kubernetes", "Terraform", "Docker"],
+      "description": "Manage our cloud infrastructure and implement CI/CD pipelines.",
+      "location": "Los Angeles, CA",
+      "duration": "Full-time",
+      "hiring_window": {"start_date": "2024-10-15", "end_date": "2024-12-31"},
+      "percentMatch": 91,
+      "certifications": [{"name": "AWS Certified DevOps Engineer", "issued_by": "AWS", "date_issued": "2023-05-05"}]
+    },
+    {
+      "id": 107,
+      "company": "JPMC",
+      "title": "Software Engineer",
+      "salary": {"min": 95000, "max": 120000, "currency": "USD", "type": "Annual"},
+      "skills": ["C#", ".NET", "Azure", "SQL Server", "Microservices"],
+      "description": "Build scalable applications on the Azure platform.",
+      "location": "Redmond, WA",
+      "duration": "Full-time",
+      "hiring_window": {"start_date": "2024-09-01", "end_date": "2024-11-30"},
+      "percentMatch": 88,
+      "certifications": [{"name": "Azure Solutions Architect", "issued_by": "Microsoft", "date_issued": "2023-03-15"}]
     }
   ]
 }

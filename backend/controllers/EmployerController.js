@@ -1,5 +1,71 @@
-import express from 'express';
 import fs from 'fs/promises';  
+import {createEmployer, getEmployerByIdDb, getAllEmployerJobPostingsDb} from '../lib/actions/employer.actions.js';
+
+export const getAllEmployerJobPostingsRoute = async (req, res) => {
+  try {
+    const employerId = req.params.id;
+    const jobPostings = await getAllEmployerJobPostingsDb(employerId);
+    if (jobPostings.error) {
+      return res.status(404).json({ message: 'Job postings not found' });
+    }
+    res.status(200).json(jobPostings);
+  } catch (error) {
+    console.error('Error getting employer job postings:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+export const getEmployerByIdRoute = async (req, res) => {
+  try {
+    const employerId = req.params.id;
+    const employer = await getEmployerByIdDb(employerId);
+    if (employer.error) {
+      return res.status(404).json({ message: 'Employer not found' });
+    }
+    res.status(200).json(employer);
+  } catch (error) {
+    console.error('Error getting employer by ID:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+export const createEmployerRoute = async (req, res) => {
+  try {
+      console.log('createEmployerProfile');
+      
+      // Extract data from request body
+      const {
+          companyName,
+          location,
+          industry,
+          website,
+          companySize,
+          foundedYear,
+          description,
+          contactEmail,
+          contactPhone
+      } = req.body;
+
+      // Create employer using data from frontend
+      const employer = await createEmployer({
+          name: companyName,
+          location,
+          industry,
+          website,
+          companySize,
+          foundedYear,
+          description,
+          contactEmail,
+          contactPhone
+      });
+
+      console.log('employer:', employer);
+      return res.status(201).json(employer);
+  } catch (error) {
+      console.error('Error creating employer:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }1
+}
 
 
 // loads employer list data from JSON file
@@ -34,6 +100,17 @@ async function loadJobData() {
       return JSON.parse(jsonData);
     }
     catch (error) {
+      console.error('Error reading or parsing JSON file:', error);
+      throw new Error('Failed to load data');
+    }
+}
+
+async function loadApplicationListData() {
+    const dataPath = '../json_responses/application_list.json';
+    try {
+      const jsonData = await fs.readFile(dataPath, 'utf8');
+      return JSON.parse(jsonData);
+    } catch (error) {
       console.error('Error reading or parsing JSON file:', error);
       throw new Error('Failed to load data');
     }
@@ -151,3 +228,19 @@ export const getCandidateMatches = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error in getCandidateMatches' });
   }
 };
+
+export const getApplicants = async (req, res) => {
+  try {
+    const data = await loadApplicationListData(); 
+    const company = req.params.id;
+    const applications = data.filter(item => item.Company === company);
+    const result = [];
+    for (let i = 0; i < applications.length; i++) {
+      applications[i]['Position Applied'] = "Frontend Developer"
+      result.push(applications[i]);
+    }
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
