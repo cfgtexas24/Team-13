@@ -20,6 +20,7 @@ import EmployerDash from "./components/employer/employerDash";
 import EmployeeDash from "./components/candidate/EmployeeDash";
 import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
+import Feedback from "./components/employer/feedback";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="employer" element={<EmployerHome />}>
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
+            <Route path="feedbackForm" element={<Feedback />} />
           </Route>
           <Route path="candidate" element={<EmployeeHome />}>
             <Route index path="dashboard" element={<EmployeeDash />} />
