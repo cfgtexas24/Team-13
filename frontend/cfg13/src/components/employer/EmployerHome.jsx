@@ -1,6 +1,6 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from '../navBars/employerNavbar'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "../navBars/employerNavbar";
 
 const EmployerHome = () => {
   return (
@@ -8,7 +8,7 @@ const EmployerHome = () => {
       <Navbar />
       <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default EmployerHome
+export default EmployerHome;
