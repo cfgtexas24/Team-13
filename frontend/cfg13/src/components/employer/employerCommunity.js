@@ -6,7 +6,7 @@ const rooms = ['React', 'Node.js', 'Data Science', 'Machine Learning', 'UI/UX De
 function EmployerCommunity() {
   return (
     <div style={{ padding: '20px', fontFamily: 'Roboto, sans-serif' }}>
-      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Employer: Join a Community!</h2>
+      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Join a Community!</h2>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
         {rooms.map((room) => (
