@@ -157,14 +157,14 @@ const EmployeeOnboarding = () => {
                                     />
                                     <input
                                         type="date"
-                                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        className="mb-1 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                         value={cert.dateIssued}
                                         onChange={(e) => handleCertificationChange(index, 'dateIssued', e.target.value)}
                                     />
                                     <button
                                           type="button"
                                           onClick={() => setCertifications(certifications.filter((_, i) => i !== index))}
-                                          className="text-xs float-right text-red-500"
+                                          className="rounded text-xs float-right text-red-500"
                                       >
                                           Delete
                                       </button>
