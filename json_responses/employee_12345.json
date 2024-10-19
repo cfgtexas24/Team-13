@@ -10,7 +10,7 @@
         "Cloud Computing"
       ],
       "demographic": {
-        "age": 30,
+        "dob": "1990-05-10",
         "gender": "Male",
         "ethnicity": "Asian"
       },
