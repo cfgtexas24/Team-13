@@ -4,17 +4,13 @@ import { Link } from 'react-router-dom';
 function Jobs({ jobs }) {
   console.log(jobs);
   
-  // State to track the selected job posting
   const [selectedJob, setSelectedJob] = useState(null);
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Your Job Postings</h2>
-      
-      {/* Cards Layout with Flexbox */}
       <Link to="jobCandidates">
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {/* Iterate over the jobs array */}
         {jobs?.map((job) => (
           <div
             key={job.job_id}
