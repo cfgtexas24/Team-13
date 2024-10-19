@@ -23,12 +23,13 @@ import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 import Feedback from "./components/employer/feedback";
 import UserRoadmap from "./components/candidate/userRoadmap";
+import LandingPage from "./components/landingPage";
 
 function App() {
   return (
     <div>
       <Routes>x
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<LandingPage />}>
           <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
             <Route path="candidate" element={<EmployeeOnboarding />} />
