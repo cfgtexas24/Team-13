@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../navbar'
+import Navbar from '../navBars/employerNavbar'
 import Jobs from '../jobs'
 
 const EmployerDash = () => {
