@@ -1,13 +1,14 @@
 import express from 'express';
-import { getEmployeeById } from './controllers/EmployeeController.js';
+import { createApplication, getEmployeeById, getApplicationById, getAllApplications } from './controllers/EmployeeController.js';
 import { getEmployerById, getAllEmployerJobPostings, createJobPosting, getPotentialCandidates } from './controllers/EmployerController.js';
 
 const router = express.Router();
 
-
 // Employee routes
-router.get('/getEmployeeById/:id', getEmployeeById);
-
+router.get('/getEmployeeById/:id/:id', getEmployeeById);
+router.get('/getApplicationById/:employeeId/:applicationId', getApplicationById);
+router.get('/getAllApplications/:id', getAllApplications);
+router.get('/createApplication', createApplication)
 
 // Employer routes
 router.get('/getEmployerById/:id', getEmployerById);

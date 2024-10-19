@@ -1,0 +1,108 @@
+{
+    "jobs": [
+      {
+        "id": 101,
+        "company": "Slack",
+        "title": "Frontend Developer",
+        "salary": {
+          "min": 85000,
+          "max": 105000,
+          "currency": "USD",
+          "type": "Annual"
+        },
+        "skills": [
+          "JavaScript",
+          "React",
+          "CSS",
+          "HTML",
+          "Git"
+        ],
+        "description": "We are looking for a Frontend Developer to design and implement user-facing features for our web applications.",
+        "location": "Remote",
+        "duration": "Full-time",
+        "hiring_window": {
+          "start_date": "2024-09-15",
+          "end_date": "2024-12-15"
+        },
+        "applied_count": 42
+      },
+      {
+        "id": 102,
+        "company": "Zoom",
+        "title": "Backend Developer",
+        "salary": {
+          "min": 90000,
+          "max": 120000,
+          "currency": "USD",
+          "type": "Annual"
+        },
+        "skills": [
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Docker",
+          "Kubernetes"
+        ],
+        "description": "Seeking a Backend Developer to create robust and scalable backend services for Zoom's communication platform.",
+        "location": "San Francisco, CA",
+        "duration": "Full-time",
+        "hiring_window": {
+          "start_date": "2024-10-01",
+          "end_date": "2024-12-31"
+        },
+        "applied_count": 57
+      },
+      {
+        "id": 103,
+        "company": "Google",
+        "title": "Cloud Solutions Architect",
+        "salary": {
+          "min": 115000,
+          "max": 145000,
+          "currency": "USD",
+          "type": "Annual"
+        },
+        "skills": [
+          "Google Cloud Platform",
+          "Terraform",
+          "DevOps",
+          "CI/CD",
+          "Python"
+        ],
+        "description": "We are looking for a Cloud Solutions Architect to help design and implement cloud strategies for enterprise customers.",
+        "location": "Remote",
+        "duration": "Full-time",
+        "hiring_window": {
+          "start_date": "2024-09-20",
+          "end_date": "2024-11-30"
+        },
+        "applied_count": 78
+      },
+      {
+        "id": 104,
+        "company": "Amazon",
+        "title": "Data Scientist",
+        "salary": {
+          "min": 120000,
+          "max": 150000,
+          "currency": "USD",
+          "type": "Annual"
+        },
+        "skills": [
+          "Python",
+          "Machine Learning",
+          "SQL",
+          "Pandas",
+          "AWS"
+        ],
+        "description": "Looking for a Data Scientist to develop machine learning models and data-driven insights for Amazon's operations.",
+        "location": "Seattle, WA",
+        "duration": "Full-time",
+        "hiring_window": {
+          "start_date": "2024-11-01",
+          "end_date": "2025-01-31"
+        },
+        "applied_count": 65
+      }
+    ]
+  }
