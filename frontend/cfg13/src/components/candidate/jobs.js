@@ -24,7 +24,9 @@ function CandJobs() {
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#f0f2f5', minHeight: '100vh' }}>
-      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Job Postings</h2>
+      <h1 style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}>
+          Job Posting
+      </h1>
 
       {/* Cards Layout with Flexbox */}
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
