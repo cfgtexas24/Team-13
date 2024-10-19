@@ -167,8 +167,10 @@ const UserRoadmap = () => {
   return (
     <Box sx={{ bgcolor: '#f5f5f5', minHeight: '100vh', paddingTop: 3, paddingBottom: 3 }}>
       <Box sx={{ maxWidth: 900, margin: 'auto', p: 3 }}>
-        <Typography variant="h4" gutterBottom sx={{ mb: 4 }}>
+        <Typography variant="h4" gutterBottom sx={{ mb: 4 }} >
+        <h1 style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}>
           Professional Certifications
+        </h1>
         </Typography>
         
         {/* Google Certifications Section */}

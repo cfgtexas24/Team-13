@@ -1,10 +1,10 @@
 import fs from 'fs/promises';  
-import {createEmployer, getEmployerById, getAllEmployerJobPostings} from '../lib/actions/employer.actions.js';
+import {createEmployer, getEmployerByIdDb, getAllEmployerJobPostingsDb} from '../lib/actions/employer.actions.js';
 
 export const getAllEmployerJobPostingsRoute = async (req, res) => {
   try {
     const employerId = req.params.id;
-    const jobPostings = await getAllEmployerJobPostings(employerId);
+    const jobPostings = await getAllEmployerJobPostingsDb(employerId);
     if (jobPostings.error) {
       return res.status(404).json({ message: 'Job postings not found' });
     }
@@ -18,7 +18,7 @@ export const getAllEmployerJobPostingsRoute = async (req, res) => {
 export const getEmployerByIdRoute = async (req, res) => {
   try {
     const employerId = req.params.id;
-    const employer = await getEmployerById(employerId);
+    const employer = await getEmployerByIdDb(employerId);
     if (employer.error) {
       return res.status(404).json({ message: 'Employer not found' });
     }
@@ -105,6 +105,45 @@ async function loadJobData() {
     }
 }
 
+async function loadApplicationListData() {
+    const dataPath = '../json_responses/application_list.json';
+    try {
+      const jsonData = await fs.readFile(dataPath, 'utf8');
+      return JSON.parse(jsonData);
+    } catch (error) {
+      console.error('Error reading or parsing JSON file:', error);
+      throw new Error('Failed to load data');
+    }
+}
+
+export const getEmployerById = async (req, res) => {
+    try {
+        const data = await loadEmployerList(); 
+        const employerId = parseInt(req.params.id);
+        const employer = data.find(item => item.employer.id === employerId);
+        if (!employer) {
+          return res.status(404).json({ message: `Employer with ID ${employerId} not found` });
+        }
+        res.status(200).json(employer['employer']['profile']);
+      } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
+}
+
+export const getAllEmployerJobPostings = async (req, res) => {
+    try {
+        const data = await loadEmployerList(); 
+        const employerId = parseInt(req.params.id);
+        const employer = data.find(item => item.employer.id === employerId);
+        if (!employer) {
+          return res.status(404).json({ message: `Employer with ID ${employerId} not found` });
+        }
+        res.status(200).json(employer['employer']['jobs']);
+      } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
+}
+
 export const createJobPosting = async (req, res) => {
     try {
         // extract job data from request body, potentially use this 
@@ -189,3 +228,19 @@ export const getCandidateMatches = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error in getCandidateMatches' });
   }
 };
+
+export const getApplicants = async (req, res) => {
+  try {
+    const data = await loadApplicationListData(); 
+    const company = req.params.id;
+    const applications = data.filter(item => item.Company === company);
+    const result = [];
+    for (let i = 0; i < applications.length; i++) {
+      applications[i]['Position Applied'] = "Frontend Developer"
+      result.push(applications[i]);
+    }
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
