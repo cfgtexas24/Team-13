@@ -41,7 +41,7 @@ const Navbar = () => {
               <div className="flex space-x-4">
                 <Link to="/candidate" className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-medium text-white">Dashboard</Link>
                 <Link to="roadmaps" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Roadmaps</Link>
-                
+                <Link to="jobs" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Jobs</Link>
               </div>
             </div>
           </div>
