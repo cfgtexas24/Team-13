@@ -18,10 +18,8 @@ import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
 import JobCandidates from "./components/employer/jobCandidates";
 
-const theme = createTheme()
-export default function App() {
+function App() {
   return (
-    <ThemeProvider theme={theme}>
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -41,6 +39,7 @@ export default function App() {
         </Route>
       </Routes>
     </div>
-    </ThemeProvider>
   );
 }
+
+export default App;
