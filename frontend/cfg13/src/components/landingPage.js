@@ -17,7 +17,7 @@ const LandingPage = () => {
         <div className="hidden md:flex space-x-4 ml-auto">
         </div>
         <button className="border border-gray-300 text-gray-700 px-6 py-2 mr-3 rounded">Our Programs</button>
-        <button className="bg-blue-900 text-white px-4 py-2 rounded">Employers</button>
+        <Link to='onboarding/employer'><button className="bg-blue-900 text-white px-4 py-2 rounded">Employers</button></Link>
       </nav>
 
       {/* Hero Section */}
