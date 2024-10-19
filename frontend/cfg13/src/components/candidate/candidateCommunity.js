@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 const rooms = [
-  { name: 'React', icon: ReactIcon },
+  { name: 'Software Development', icon: ReactIcon },
   { name: 'Node.js', icon: NodeIcon },
   { name: 'Data Science', icon: DataScienceIcon },
   { name: 'Machine Learning', icon: MachineLearningIcon },
