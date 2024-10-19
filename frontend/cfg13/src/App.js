@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Onboarding from "./components/Onboarding"
 
-function App() {
+import { Routes, Route } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material";
+import Layout from './components/layout';
+import Home from './components/home';
+import Profile from './components/profile';
+import Jobs from './components/jobs';
+import NoMatch from "./components/noMatch";
+
+import EmployeeOnboarding from './forms/EmployeeOnboarding'
+import EmployerOnboarding from './forms/EmployerOnboarding'
+
+const theme = createTheme()
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <ThemeProvider theme={theme}>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="onboarding" element={<Onboarding />}>
+            <Route path="employee" element={<EmployeeOnboarding />} />
+            <Route path="employer" element={<EmployerOnboarding />} />
+          </Route>
+          <Route index element={<Home />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="jobs" element={<Jobs />} />
+          <Route path="*" element={<NoMatch />} /> 
+        </Route>
+      </Routes>
     </div>
+    </ThemeProvider>
   );
 }
-
-export default App;
