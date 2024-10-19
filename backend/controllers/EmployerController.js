@@ -1,5 +1,26 @@
-import express from 'express';
 import fs from 'fs/promises';  
+import {createEmployer} from '../lib/actions/employer.actions.js';
+// const Employer = require('../lib/models/Employer.model')
+// import Employer from '../lib/models/Employer.model'
+
+// test function for db
+export const createEmployerTest = async (req, res) => {
+    try {
+        console.log('createEmployerTest');
+        const employer = await createEmployer({
+            id: "12345",
+          name: "John Doe",
+          location: "New York",
+          industry: "Tech",
+          description: "We are a tech company",
+          targetedSkills: ["JavaScript", "React", "Node.js"],
+        });
+        console.log('employer:', employer);
+        return res.status(200).json(employer);
+      } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
+}
 
 
 // loads employer list data from JSON file
