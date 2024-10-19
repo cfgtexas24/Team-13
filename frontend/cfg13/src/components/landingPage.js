@@ -12,7 +12,9 @@ const LandingPage = () => {
       {/* Navigation */}
       <nav className="flex justify-between items-center p-4">
         <div className="flex items-center">
-          <div className="text-2xl font-bold"><img className="h-12 w-auto" src={logo} alt="Logo" /></div>
+          <Link to="/">
+            <div className="text-2xl font-bold"><img className="h-12 w-auto" src={logo} alt="Logo" /></div>
+          </Link>
         </div>
         <div className="hidden md:flex space-x-4 ml-auto">
         </div>

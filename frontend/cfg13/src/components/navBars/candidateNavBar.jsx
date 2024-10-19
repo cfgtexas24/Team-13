@@ -81,7 +81,9 @@ const Navbar = () => {
               )}
             </button>
             <div className="flex items-center">
-              <img className="h-8 w-auto" src={logo} alt="Logo" />
+              <Link to="/">
+                <img className="h-8 w-auto" src={logo} alt="Logo" />
+              </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
