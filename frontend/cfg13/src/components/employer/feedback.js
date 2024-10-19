@@ -5,6 +5,7 @@ function FeedbackForm() {
   const [employeeName, setEmployeeName] = useState("");
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState(1); // Default rating is 1
+  const [showConfirmation, setShowConfirmation] = useState(false); // Confirmation state
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,11 +16,19 @@ function FeedbackForm() {
       rating,
     });
 
+    // Show confirmation message
+    setShowConfirmation(true);
+
     // Reset the form after submission
     setEmployerName("");
     setEmployeeName("");
     setFeedback("");
     setRating(1);
+
+    // Hide confirmation after 3 seconds
+    setTimeout(() => {
+      setShowConfirmation(false);
+    }, 3000);
   };
 
   return (
@@ -34,6 +43,24 @@ function FeedbackForm() {
       >
         Employee Feedback Form
       </h2>
+
+      {/* Confirmation Message */}
+      {showConfirmation && (
+        <div
+          style={{
+            backgroundColor: "#D4EDDA",
+            color: "#155724",
+            padding: "10px",
+            borderRadius: "4px",
+            marginBottom: "20px",
+            textAlign: "center",
+            fontSize: "16px",
+          }}
+        >
+          Feedback submitted successfully!
+        </div>
+      )}
+
       <form
         onSubmit={handleSubmit}
         style={{ maxWidth: "400px", margin: "auto" }}
