@@ -17,7 +17,7 @@ const EmployerDash = () => {
   const syntheticJobs = [
     {
       id: 1,
-      title: "Software Engineer",
+      title: "Frontend Developer",
       location: "San Francisco, CA",
       description: "Develop, test, and maintain software applications. Collaborate with cross-functional teams to deliver high-quality software solutions.",
       salary: "$110,000 - $130,000",
@@ -87,7 +87,7 @@ const EmployerDash = () => {
           {jobs.length > 0 ? (
             jobs.map((job) => (
               <Link
-                to="jobDetails"
+                to="jobCandidates"
                 key={job.id}
                 style={{ color: 'inherit', textDecoration: 'none' }}
               >
