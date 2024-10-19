@@ -1,4 +1,5 @@
 import React from 'react'
+import Jobs from '../employer/jobs'
 import Dashboard from '../candidate/Dashboard'
 
 const EmployerDash = () => {
