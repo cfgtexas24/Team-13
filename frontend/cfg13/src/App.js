@@ -17,8 +17,8 @@ import EmployerOnboarding from './forms/EmployerOnboarding'
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
 
-import EmployeeDash from "./components/employee/EmployeeDash";
-import EmployeeHome from "./components/employee/EmployeeHome";
+import EmployeeDash from "./components/candidate/EmployeeDash";
+import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 
 function App() {
