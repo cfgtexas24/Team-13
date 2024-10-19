@@ -30,6 +30,7 @@ const EmployeeOnboarding = () => {
             certifications
         };
         console.log(formData);
+        
     };
 
     return (
