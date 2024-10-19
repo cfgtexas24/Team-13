@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
+
 
 const EmployerProfile = () => {
+    const navigate = useNavigate();
     const [profile, setProfile] = useState({
         companyName: '',
         industry: '',
@@ -26,10 +30,18 @@ const EmployerProfile = () => {
         e.preventDefault();
         console.log('Profile data:', profile);
         // Here you would typically send the data to your backend
-        const employer = fetch('http://localhost:4000/api/getAllEmployerJobPostings/67890')
+        const employer = fetch('http://localhost:4000/api/createEmployer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(profile)
+        })
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Error:', error));
+            
+        navigate('/employer');
     };
 
     return (
@@ -155,6 +167,7 @@ const EmployerProfile = () => {
                             <button
                                 type="submit"
                                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-900 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+                                onSubmit={handleSubmit}
                             >
                                 Save Profile
                             </button>

@@ -29,8 +29,7 @@ async function loadJobData() {
 export const getEmployeeById = async (req, res) => {
     try {
         const employeeId = parseInt(req.params.id, 10); // Convert to a number
-        const data = await loadEmployeeListData
-    ();
+        const data = await loadEmployeeListData();
         
         const employee = data.employees.find((employee) => employee.id === employeeId); // Match the ID correctly
         
