@@ -14,10 +14,3 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-// <ThemeProvider theme={theme}>
-//       <div className="App">
-//         <p>hi</p>
-//         <Button>hi</Button>
-//       </div>
-//     </ThemeProvider>
