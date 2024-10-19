@@ -7,7 +7,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import Layout from './components/layout';
 import Home from './components/home';
 import Profile from './components/profile';
-import Jobs from './components/jobs';
+import Jobs from './components/employer/jobs';
 import NoMatch from "./components/noMatch";
 import ProfileReturn from "./components/profileReturn";
 
