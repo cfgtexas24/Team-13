@@ -6,14 +6,13 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [notifications, setNotifications] = useState([]); // State for notifications
-  const [loading, setLoading] = useState(false); // State for loading notifications
-  const location = useLocation(); // Get the current location
+  const [notifications, setNotifications] = useState([]); 
+  const [loading, setLoading] = useState(false); 
+  const location = useLocation(); 
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleProfileMenu = () => setIsProfileMenuOpen(!isProfileMenuOpen);
 
-  // Fetch notifications when the notification dropdown is opened
   const toggleNotificationDropdown = async () => {
     setIsNotificationOpen(!isNotificationOpen);
     if (!isNotificationOpen) {
@@ -33,7 +32,6 @@ const Navbar = () => {
     }
   };
 
-  // Helper function to determine if a tab is active
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -81,7 +79,9 @@ const Navbar = () => {
               )}
             </button>
             <div className="flex items-center">
-              <img className="h-8 w-auto" src={logo} alt="Logo" />
+              <Link to="/">
+                <img className="h-8 w-auto" src={logo} alt="Logo" />
+              </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
@@ -125,12 +125,21 @@ const Navbar = () => {
                 >
                   Templates
                 </Link>
+                <Link
+                  to="community"
+                  className={`rounded-md px-3 py-2 text-sm font-medium ${
+                    isActive("/applyJob")
+                      ? "bg-yellow-400 text-white"
+                      : "text-black hover:bg-yellow-200"
+                  }`}
+                >
+                  Community
+                </Link>
               </div>
             </div>
           </div>
 
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            {/* Notification Icon */}
             <button
               type="button"
               className="relative rounded-full bg-gray-100 p-1 text-black hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -152,8 +161,6 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-
-            {/* Notification Dropdown */}
             {isNotificationOpen && (
               <div className="absolute right-0 mt-40 w-64 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 {loading ? (

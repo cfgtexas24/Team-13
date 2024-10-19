@@ -29,7 +29,6 @@ const EmployerDash = () => {
   return (
     <div>
       <Jobs jobs={jobs} />
-      {/* have all jobs the employer has posted */}
       <></>
     </div>
   );

@@ -78,7 +78,9 @@ const Navbar = () => {
 
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-8 w-auto" src={logo} />
+              <Link to="/">
+                <img className="h-8 w-auto" src={logo} alt="Logo" />
+              </Link>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -99,6 +101,12 @@ const Navbar = () => {
                   className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 "
                 >
                   Feedback
+                </Link>
+                <Link
+                  to="community"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 "
+                >
+                  Community
                 </Link>
               </div>
             </div>
