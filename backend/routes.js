@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
+import { getEmployeeById } from './controllers/EmployeeController.js';
+
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
-    res.send("Hello Root Node")
-});
+router.get('/getEmployeeById', getEmployeeById);
 
-module.exports = router;
+export default router;
