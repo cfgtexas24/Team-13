@@ -40,7 +40,7 @@ function App() {
           </Route>
 
           <Route path="candidate" element={<EmployeeHome />}>
-            <Route index element={<EmployeeDash />} />
+            <Route index path="dashboard" element={<EmployeeDash />} />
             <Route path="jobs" element={<Jobs />} />
           </Route>
 
