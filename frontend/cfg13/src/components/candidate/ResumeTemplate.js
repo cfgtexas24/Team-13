@@ -1,166 +1,82 @@
 import React from "react";
-import DocViewer from "react-doc-viewer";
-
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+import "@cyntler/react-doc-viewer/dist/index.css";
 
 const ResumeCoverLetterPage = () => {
+  const resumeURI = require('../../assets/resume-template.jpeg');
+  const coverLetterURI = require('../../assets/cover-letter.jpg');
+
+  const resume = [{ uri: resumeURI }];
+  const coverLetter = [{ uri: coverLetterURI }];
+
   return (
-    <div style={{ padding: "20px", fontFamily: "Roboto, sans-serif" }}>
+    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
+        <h1
+          style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}
+        >
+          Resume and Cover Letter Templates
+        </h1>
 
-      <h1
-        style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}
-      >
-        Resume and Cover Letter Templates
-      </h1>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          marginBottom: "40px",
-        }}
-      >
-        <div style={{ width: "45%" }}>
-          <h2
-            style={{
-              fontSize: "30px",
-              marginBottom: "20px",
-              textAlign: "center",
-            }}
-          >
-            Resume Template
-          </h2>
-          <div
-            style={{
-              padding: "20px",
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              backgroundColor: "#f9f9f9",
-            }}
-          >
-            <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>John Doe</h3>
-            <p style={{ margin: "5px 0" }}>Email: john.doe@example.com</p>
-            <p style={{ margin: "5px 0" }}>Phone: (123) 456-7890</p>
-            <p style={{ margin: "5px 0" }}>LinkedIn: linkedin.com/in/johndoe</p>
-            <p style={{ margin: "5px 0" }}>GitHub: github.com/johndoe</p>
-
-            <h4
-              style={{
-                fontSize: "22px",
-                marginTop: "20px",
-                marginBottom: "10px",
-              }}
-            >
-              Summary
-            </h4>
-            <p>
-              Detail-oriented software developer with 5+ years of experience in
-              building web applications, proficient in JavaScript, React, and
-              Node.js.
-            </p>
-
-            <h4
-              style={{
-                fontSize: "22px",
-                marginTop: "20px",
-                marginBottom: "10px",
-              }}
-            >
-              Work Experience
-            </h4>
-            <p style={{ marginBottom: "5px" }}>
-              <strong>Software Developer</strong> - XYZ Company
-            </p>
-            <p style={{ marginBottom: "5px" }}>June 2019 - Present</p>
-            <ul style={{ paddingLeft: "20px" }}>
-              <li>
-                Developed and maintained web applications using React and
-                Node.js.
-              </li>
-              <li>
-                Collaborated with cross-functional teams to deliver high-quality
-                products.
-              </li>
-              <li>
-                Improved site performance by 30% through code optimization.
-              </li>
-            </ul>
-
-            <h4
-              style={{
-                fontSize: "22px",
-                marginTop: "20px",
-                marginBottom: "10px",
-              }}
-            >
-              Education
-            </h4>
-            <p>
-              <strong>Bachelor of Science in Computer Science</strong> -
-              University of ABC
-            </p>
-            <p>Graduated: May 2019</p>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between", // Space between the two viewers
+            gap: "20px", // Gap between columns
+            alignItems: "flex-start", // Align content at the top
+            marginBottom: "40px",
+          }}
+        >
+          {/* Resume Section */}
+          <div style={{ width: '48%' }}>
+            <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+              <a href={resumeURI} download="resume-template.jpeg">
+                <button
+                  style={{
+                    padding: '10px 20px',
+                    backgroundColor: '#1e3a8a',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    marginBottom: '10px', // Adds space below the button
+                  }}
+                >
+                  Download Resume
+                </button>
+              </a>
+            </div>
+            <DocViewer
+              documents={resume}
+              pluginRenderers={DocViewerRenderers}
+              style={{ width: '95%', height: '600px' }}
+            />
           </div>
-        </div>
 
-        <div style={{ width: "45%" }}>
-          <h2
-            style={{
-              fontSize: "30px",
-              marginBottom: "20px",
-              textAlign: "center",
-            }}
-          >
-            Cover Letter Template
-          </h2>
-          <div
-            style={{
-              padding: "20px",
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              backgroundColor: "#f9f9f9",
-            }}
-          >
-            <p>Date: [Insert Date]</p>
-            <p>Hiring Manager's Name</p>
-            <p>Company Name</p>
-            <p>Company Address</p>
-            <p>City, State ZIP Code</p>
-
-            <h4
-              style={{
-                fontSize: "22px",
-                marginTop: "20px",
-                marginBottom: "10px",
-              }}
-            >
-              Dear [Hiring Manager's Name],
-            </h4>
-
-            <p>
-              I am writing to express my interest in the [Job Title] position at
-              [Company Name]. With my background in [specific skills related to
-              the job], I am confident that I can make a significant
-              contribution to your team.
-            </p>
-
-            <p>
-              In my most recent role as a [Job Title] at [Current or Previous
-              Company], I [mention an accomplishment or responsibility that
-              matches the job description]. I believe that my experience with
-              [mention any relevant tools or software] and my dedication to
-              [mention a relevant work ethic or value] make me an ideal
-              candidate for this position.
-            </p>
-
-            <p>
-              I am excited about the opportunity to work with [Company Name] and
-              contribute to [mention something you admire about the company].
-              Thank you for considering my application. I look forward to the
-              opportunity to discuss my qualifications further.
-            </p>
-
-            <p>Sincerely,</p>
-            <p>John Doe</p>
+          {/* Cover Letter Section */}
+          <div style={{ width: '48%' }}>
+            <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+              <a href={coverLetterURI} download="cover-letter.jpg">
+                <button
+                  style={{
+                    padding: '10px 20px',
+                    backgroundColor: '#1e3a8a',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    marginBottom: '10px', // Adds space below the button
+                  }}
+                >
+                  Download Cover Letter
+                </button>
+              </a>
+            </div>
+            <DocViewer
+              documents={coverLetter}
+              pluginRenderers={DocViewerRenderers}
+              style={{ width: '95%', height: '600px' }}
+            />
           </div>
         </div>
       </div>
