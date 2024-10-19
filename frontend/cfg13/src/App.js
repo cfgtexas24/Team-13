@@ -16,6 +16,9 @@ import EmployerOnboarding from './forms/EmployerOnboarding'
 
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
+
+import EmployeeDash from "./components/employee/EmployeeDash";
+import EmployeeHome from "./components/employee/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 
 function App() {
@@ -28,10 +31,12 @@ function App() {
             <Route path="employee" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
-          <Route path="employerDash" element={<EmployerHome />}>
+          <Route path="employer" element={<EmployerHome />}>
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
-            <Route path="jobs" element={<Jobs />} />
+          </Route>
+          <Route path="employee" element={<EmployeeHome />}>
+            <Route index element={<EmployeeDash />} />
           </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
