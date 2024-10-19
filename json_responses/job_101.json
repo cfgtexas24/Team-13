@@ -1,6 +1,7 @@
 {
     "job": {
       "id": 101,
+      "company": "Slack",
       "title": "Frontend Developer",
       "salary": {
         "min": 85000,
