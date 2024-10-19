@@ -9,6 +9,7 @@ import Home from './components/home';
 import Profile from './components/profile';
 import Jobs from './components/jobs';
 import NoMatch from "./components/noMatch";
+import ProfileReturn from "./components/profileReturn";
 
 import EmployeeOnboarding from './forms/EmployeeOnboarding'
 import EmployerOnboarding from './forms/EmployerOnboarding'
@@ -26,6 +27,7 @@ export default function App() {
           </Route>
           <Route index element={<Home />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="profileReturn" element={<ProfileReturn />} />
           <Route path="jobs" element={<Jobs />} />
           <Route path="*" element={<NoMatch />} /> 
         </Route>
