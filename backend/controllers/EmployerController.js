@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 // loads data from JSON file
 async function loadData() {
-    const dataPath = '../json_responses/employer_full.json';
+    const dataPath = '../json_responses/employerList.json';
     try {
       const jsonData = await fs.readFile(dataPath, 'utf8');
       return JSON.parse(jsonData);
@@ -17,17 +17,29 @@ async function loadData() {
 
 
 export const getEmployerById = async (req, res) => {
-try {
-    const data = await loadData();
-    const employerId = req.params.id;
-    res.json(data[employerId]);
-    const employerData = data.find(employer => employer.id === employerId);
-    if (!employerData) {
-        return res.status(404).json({ error: 'Employer not found' });
-    }
-    res.json(employerData);
-    }catch (error) {
-        console.error('Error fetching employer data:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+    try {
+        const data = await loadData(); 
+        const employerId = parseInt(req.params.id);
+        const employer = data.find(item => item.employer.id === employerId);
+        if (!employer) {
+          return res.status(404).json({ message: `Employer with ID ${employerId} not found` });
+        }
+        res.json(employer['employer']['profile']);
+      } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
+}
+
+export const getAllEmployerJobPostings = async (req, res) => {
+    try {
+        const data = await loadData(); 
+        const employerId = parseInt(req.params.id);
+        const employer = data.find(item => item.employer.id === employerId);
+        if (!employer) {
+          return res.status(404).json({ message: `Employer with ID ${employerId} not found` });
+        }
+        res.json(employer['employer']['jobs']);
+      } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
 }
