@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Jobs() {
   // Sample job application data
@@ -42,100 +43,110 @@ function Jobs() {
       </h2>
 
       {/* Cards Layout with Flexbox */}
-      <div
+      <Link
+        to=""
         style={{
-          display: "flex",
-          gap: "20px",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          color: "#007BFF",
+          textDecoration: "none",
+          display: "block",
+          marginBottom: "20px",
         }}
       >
-        {/* Sort applications by percentMatch in descending order */}
-        {applications
-          .sort((a, b) => b.percentMatch - a.percentMatch)
-          .map((app) => (
-            <div
-              key={app.id}
-              style={{
-                width: "300px",
-                padding: "20px",
-                border: "1px solid #ddd",
-                borderRadius: "8px",
-                backgroundColor: "#f9f9f9",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                transition: "background-color 0.3s",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = "#f1f1f1")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "#f9f9f9")
-              }
-            >
-              <h3 style={{ margin: "0 0 10px 0", color: "#007BFF" }}>
-                {app.title}
-              </h3>
-              <p style={{ margin: "5px 0" }}>
-                <strong>Company:</strong> {app.company}
-              </p>
-              <p style={{ margin: "5px 0" }}>
-                <strong>Location:</strong> {app.location}
-              </p>
-              <p style={{ margin: "5px 0" }}>
-                <strong>Salary:</strong> {app.salary}
-              </p>
-              <p style={{ margin: "5px 0" }}>
-                <strong>Percent Match:</strong> {app.percentMatch}%
-              </p>
-              <a
-                href={app.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#007BFF", textDecoration: "none" }}
-              >
-                View Job Posting
-              </a>
-            </div>
-          ))}
-      </div>
-
-      {/* Job Details Section */}
-      {selectedJob && (
         <div
           style={{
-            marginTop: "30px",
-            padding: "20px",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            backgroundColor: "#f9f9f9",
+            display: "flex",
+            gap: "20px",
+            flexWrap: "wrap",
+            justifyContent: "center",
           }}
         >
-          <h3>Job Details</h3>
-          <p>
-            <strong>Job Title:</strong> {selectedJob.title}
-          </p>
-          <p>
-            <strong>Company:</strong> {selectedJob.company}
-          </p>
-          <p>
-            <strong>Location:</strong> {selectedJob.location}
-          </p>
-          <p>
-            <strong>Salary:</strong> {selectedJob.salary}
-          </p>
-          <p>
-            <strong>Percent Match:</strong> {selectedJob.percentMatch}%
-          </p>
-          <a
-            href={selectedJob.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#007BFF" }}
-          >
-            View Job Posting
-          </a>
+          {/* Sort applications by percentMatch in descending order */}
+          {applications
+            .sort((a, b) => b.percentMatch - a.percentMatch)
+            .map((app) => (
+              <div
+                key={app.id}
+                style={{
+                  width: "300px",
+                  padding: "20px",
+                  border: "1px solid #ddd",
+                  borderRadius: "8px",
+                  backgroundColor: "#f9f9f9",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                  transition: "background-color 0.3s",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#f1f1f1")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#f9f9f9")
+                }
+              >
+                <h3 style={{ margin: "0 0 10px 0", color: "#007BFF" }}>
+                  {app.title}
+                </h3>
+                <p style={{ margin: "5px 0" }}>
+                  <strong>Company:</strong> {app.company}
+                </p>
+                <p style={{ margin: "5px 0" }}>
+                  <strong>Location:</strong> {app.location}
+                </p>
+                <p style={{ margin: "5px 0" }}>
+                  <strong>Salary:</strong> {app.salary}
+                </p>
+                <p style={{ margin: "5px 0" }}>
+                  <strong>Percent Match:</strong> {app.percentMatch}%
+                </p>
+                <a
+                  href={app.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#007BFF", textDecoration: "none" }}
+                >
+                  View Job Posting
+                </a>
+              </div>
+            ))}
         </div>
-      )}
+
+        {/* Job Details Section */}
+        {selectedJob && (
+          <div
+            style={{
+              marginTop: "30px",
+              padding: "20px",
+              border: "1px solid #ddd",
+              borderRadius: "8px",
+              backgroundColor: "#f9f9f9",
+            }}
+          >
+            <h3>Job Details</h3>
+            <p>
+              <strong>Job Title:</strong> {selectedJob.title}
+            </p>
+            <p>
+              <strong>Company:</strong> {selectedJob.company}
+            </p>
+            <p>
+              <strong>Location:</strong> {selectedJob.location}
+            </p>
+            <p>
+              <strong>Salary:</strong> {selectedJob.salary}
+            </p>
+            <p>
+              <strong>Percent Match:</strong> {selectedJob.percentMatch}%
+            </p>
+            <a
+              href={selectedJob.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#007BFF" }}
+            >
+              View Job Posting
+            </a>
+          </div>
+        )}
+      </Link>
     </div>
   );
 }

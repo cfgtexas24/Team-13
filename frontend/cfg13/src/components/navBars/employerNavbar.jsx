@@ -74,7 +74,7 @@ const Navbar = () => {
                   Create Job
                 </Link>
                 <Link
-                  to="/feedback"
+                  to="feedbackForm"
                   className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 "
                 >
                   Feedback

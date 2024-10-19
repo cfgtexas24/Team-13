@@ -17,22 +17,34 @@ import EmployerOnboarding from "./forms/EmployerOnboarding";
 import RolesJobs from "./components/candidates/RolesRoadmaps";
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
+
+import EmployeeDash from "./components/candidate/EmployeeDash";
+import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
+import Feedback from "./components/employer/feedback";
+import UserRoadmap from "./components/candidate/userRoadmap";
 
 function App() {
   return (
     <div>
       <Routes>
+        x
         <Route path="/" element={<Layout />}>
-          <Route path="rolesRoadmap" element={<RolesJobs />} />
+          <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
             <Route path="employee" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
-          <Route index element={<Home />} />
+
           <Route path="employer" element={<EmployerHome />}>
-            <Route path="dash" element={<EmployerDash />} />
+            <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
+            <Route path="feedbackForm" element={<Feedback />} />
+          </Route>
+
+          <Route path="candidate" element={<EmployeeHome />}>
+            <Route index path="dashboard" element={<EmployeeDash />} />
+            <Route path="jobs" element={<Jobs />} />
           </Route>
 
           <Route path="profile" element={<Profile />} />

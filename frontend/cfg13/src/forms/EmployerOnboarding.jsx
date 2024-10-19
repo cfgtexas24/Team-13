@@ -9,8 +9,18 @@ const EmployerOnboarding = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
+        const formData = {
+            companyName,
+            location,
+            description,
+            industry
+        };
         console.log(companyName, location, description, industry);
-    }
+        const employer = fetch('http://localhost:4000/api/getAllEmployerJobPostings/67890')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+    };
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
