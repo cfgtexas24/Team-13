@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Building2, MapPin, DollarSign, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const EmployerDash = () => {
   const [employer, setEmployer] = useState(null);
@@ -89,7 +90,7 @@ const EmployerDash = () => {
           </h1>
           <p className="text-gray-500 text-center">Open Job Roles</p>
         </div>
-
+        <Link to="jobCandidates">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.length > 0 ? (
             jobs.map((job) => (
@@ -133,6 +134,7 @@ const EmployerDash = () => {
             </div>
           )}
         </div>
+        </Link>
       </div>
     </div>
   );
