@@ -1,5 +1,33 @@
 import fs from 'fs/promises';  
-import {createEmployer} from '../lib/actions/employer.actions.js';
+import {createEmployer, getEmployerByIdDb, getAllEmployerJobPostingsDb} from '../lib/actions/employer.actions.js';
+
+export const getAllEmployerJobPostingsRoute = async (req, res) => {
+  try {
+    const employerId = req.params.id;
+    const jobPostings = await getAllEmployerJobPostingsDb(employerId);
+    if (jobPostings.error) {
+      return res.status(404).json({ message: 'Job postings not found' });
+    }
+    res.status(200).json(jobPostings);
+  } catch (error) {
+    console.error('Error getting employer job postings:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+export const getEmployerByIdRoute = async (req, res) => {
+  try {
+    const employerId = req.params.id;
+    const employer = await getEmployerByIdDb(employerId);
+    if (employer.error) {
+      return res.status(404).json({ message: 'Employer not found' });
+    }
+    res.status(200).json(employer);
+  } catch (error) {
+    console.error('Error getting employer by ID:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
 
 export const createEmployerRoute = async (req, res) => {
   try {

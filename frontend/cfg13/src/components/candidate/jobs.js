@@ -1,121 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Building2, MapPin, DollarSign, Users, Star } from 'lucide-react';
 
-function CandJobs() {
-  // State to store fetched job postings
-  const [applications, setApplications] = useState([]);
+const CandJobs = () => {
+  const [jobs, setJobs] = useState([]);
 
-  // Fetch job postings from the API when the component mounts
   useEffect(() => {
-    fetch('http://localhost:4000/api/getAllJobPostings')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setApplications(data); // Update the state with the fetched data
-      })
-      .catch((error) => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/api/getAllJobPostings');
+        const data = await response.json();
+        setJobs(data.sort((a, b) => b.percentMatch - a.percentMatch));
+      } catch (error) {
         console.error('Error fetching job postings:', error);
-        setApplications([]); // Fallback to an empty array in case of an error
-      });
-  }, []); // Empty dependency array means this will run once when the component mounts
+        setJobs([]);
+      }
+    };
 
-  // State to track the selected job posting
-  const [selectedJob, setSelectedJob] = useState(null);
+    fetchJobs();
+  }, []);
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#f0f2f5', minHeight: '100vh' }}>
-      <h1 style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}>
-          Job Posting
-      </h1>
-
-      {/* Cards Layout with Flexbox */}
-      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {/* Sort applications by percentMatch in descending order */}
-        {applications.length > 0 ? (
-          applications
-            .sort((a, b) => b.percentMatch - a.percentMatch) // Sort by percentMatch in descending order
-            .map((app) => (
-              <Link
-                to="applyJob"
-                key={app.id}
-                style={{ color: 'inherit', textDecoration: 'none' }}
-              >
-                <div
-                  style={{
-                    width: '300px',
-                    padding: '20px',
-                    border: '1px solid #ddd',
-                    borderRadius: '12px',
-                    backgroundColor: '#fff',
-                    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)',
-                    transition: 'transform 0.3s, box-shadow 0.3s',
-                    textAlign: 'center',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.1)';
-                  }}
-                >
-                  <h3 style={{ margin: '0 0 10px 0', color: '#007BFF' }}>{app.title}</h3>
-                  <p style={{ margin: '5px 0' }}><strong>Company:</strong> {app.company}</p>
-                  <p style={{ margin: '5px 0' }}><strong>Location:</strong> {app.location}</p>
-                  <p style={{ margin: '5px 0' }}><strong>Salary:</strong> ${app.salary.min} - ${app.salary.max}</p>
-                  <p style={{ margin: '5px 0' }}><strong>Percent Match:</strong> {app.percentMatch}%</p>
-                  <p style={{ margin: '10px 0', fontStyle: 'italic', color: '#555' }}>
-                    <strong>Skills:</strong> {app.skills.join(', ')}
-                  </p>
-                  <a
-                    href={app.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ 
-                      color: '#007BFF', 
-                      textDecoration: 'none', 
-                      border: '1px solid #007BFF', 
-                      padding: '8px 12px', 
-                      borderRadius: '8px', 
-                      display: 'inline-block', 
-                      transition: 'background-color 0.3s, color 0.3s' 
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#007BFF';
-                      e.currentTarget.style.color = '#fff';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#fff';
-                      e.currentTarget.style.color = '#007BFF';
-                    }}
-                  >
-                    View Job Posting
-                  </a>
-                </div>
-              </Link>
-            ))
-        ) : (
-          <p>No job postings available.</p>
-        )}
-      </div>
-
-      {/* Job Details Section */}
-      {selectedJob && (
-        <div style={{ marginTop: '30px', padding: '20px', border: '1px solid #ddd', borderRadius: '8px', backgroundColor: '#f9f9f9' }}>
-          <h3>Job Details</h3>
-          <p><strong>Job Title:</strong> {selectedJob.title}</p>
-          <p><strong>Company:</strong> {selectedJob.company}</p>
-          <p><strong>Location:</strong> {selectedJob.location}</p>
-          <p><strong>Salary:</strong> {selectedJob.salary.min} - {selectedJob.salary.max}</p>
-          <p><strong>Skills:</strong> {selectedJob.skills.join(', ')}</p>
-          <a href={selectedJob.url} target="_blank" rel="noopener noreferrer" style={{ color: '#007BFF' }}>
-            View Job Posting
-          </a>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
+            Job Postings Dashboard
+          </h1>
+          <p className="text-gray-500 text-center">Available Job Opportunities</p>
         </div>
-      )}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {jobs.length > 0 ? (
+            jobs.map((job) => (
+              <div 
+                key={job.id}
+                className="group bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              >
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-blue-600 group-hover:text-blue-700 mb-4">
+                    {job.title}
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center text-gray-600">
+                      <Building2 className="h-5 w-5 mr-2 text-gray-400" />
+                      <span>{job.company}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <MapPin className="h-5 w-5 mr-2 text-gray-400" />
+                      <span>{job.location}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <DollarSign className="h-5 w-5 mr-2 text-gray-400" />
+                      <span>${job.salary.min} - ${job.salary.max}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <Star className="h-5 w-5 mr-2 text-yellow-400" />
+                      <span>{job.percentMatch}% Match</span>
+                    </div>
+                    <div className="pt-4">
+                      <a
+                        href={job.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors duration-300"
+                      >
+                        View Details
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full">
+              <div className="text-center py-12">
+                <Users className="mx-auto h-12 w-12 text-gray-400" />
+                <h3 className="mt-2 text-lg font-medium text-gray-900">No job postings available</h3>
+                <p className="mt-1 text-gray-500">Check back later for new opportunities.</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default CandJobs;

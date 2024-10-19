@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 import { start } from "repl";
 
 const jobSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true
-    },
     title: {
         type: String,
         required: true
@@ -29,5 +25,12 @@ const jobSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+    employer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Employer',
+        required: true
+    },
 });
+
+export const Job = mongoose.models.Job || mongoose.model('Job', jobSchema);
