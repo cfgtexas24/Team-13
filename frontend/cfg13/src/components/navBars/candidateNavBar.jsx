@@ -114,14 +114,24 @@ const Navbar = () => {
                   Jobs
                 </Link>
                 <Link
-                  to="userRoadmap"
+                  to="ResumeTemplate"
                   className={`rounded-md px-3 py-2 text-sm font-medium ${
-                    isActive("/userRoadmap")
+                    isActive("/ResumeTemplate")
                       ? "bg-yellow-400 text-white"
                       : "text-black hover:bg-yellow-200"
                   }`}
                 >
                   Templates
+                </Link>
+                <Link
+                  to="community"
+                  className={`rounded-md px-3 py-2 text-sm font-medium ${
+                    isActive("/applyJob")
+                      ? "bg-yellow-400 text-white"
+                      : "text-black hover:bg-yellow-200"
+                  }`}
+                >
+                  Community
                 </Link>
               </div>
             </div>
