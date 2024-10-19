@@ -4,9 +4,7 @@ import LandingPage from "./landingPage";
 
 function Layout() {
   return (
-    // <Navbar/>
     <>
-      {/* <LandingPage /> */}
       <Outlet />
     </>
   );

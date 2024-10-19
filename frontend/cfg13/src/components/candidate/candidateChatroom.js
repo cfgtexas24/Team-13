@@ -44,7 +44,6 @@ function CandidateChatroom() {
 
   return (
     <div className="flex max-w-6xl mx-auto font-sans bg-gray-100 h-screen">
-      {/* Subchat Sidebar */}
       <div className="w-1/4 bg-white shadow-md p-6">
         <h3 className="text-xl font-semibold mb-4 text-gray-800">Subchats</h3>
         <ul className="space-y-2">
@@ -63,11 +62,9 @@ function CandidateChatroom() {
         </ul>
       </div>
 
-      {/* Main Chat Area */}
       <div className="w-3/4 p-6 overflow-y-auto">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">{room} Community - {currentSubchat} Chat</h2>
         
-        {/* Chat Messages */}
         <div className="bg-white rounded-lg shadow-md p-4 mb-6 h-96 overflow-y-auto">
           {messages.map((msg, index) => (
             <div key={index} className={`mb-4 ${msg.sender === 'You' ? 'text-right' : ''}`}>
@@ -80,7 +77,6 @@ function CandidateChatroom() {
           ))}
         </div>
 
-        {/* Message Input */}
         <div className="flex items-center mb-8">
           <input
             type="text"
@@ -97,11 +93,9 @@ function CandidateChatroom() {
           </button>
         </div>
 
-        {/* Events Section */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h3 className="text-xl font-semibold mb-4 text-gray-800">Community Events</h3>
 
-          {/* Create Event Form */}
           <div className="mb-6 border border-gray-200 rounded-lg p-4">
             <h4 className="text-lg font-semibold mb-3 text-gray-700">Create New Event</h4>
             <input
@@ -135,7 +129,6 @@ function CandidateChatroom() {
             </button>
           </div>
 
-          {/* Display Events */}
           <div>
             {events.length > 0 ? (
               <ul className="space-y-4">

@@ -172,8 +172,7 @@ const UserRoadmap = () => {
             Professional Certifications
           </h1>
         </Typography>
-        
-        {/* Google Certifications Section */}
+
         <h3 className="text-xl font-semibold text-blue-600 group-hover:text-blue-700 mb-4">
           Google Certifications
         </h3>
@@ -185,7 +184,6 @@ const UserRoadmap = () => {
             ))}
         </Stack>
 
-        {/* NRF Certifications Section */}
         <h3 className="text-xl font-semibold text-[#00848E] group-hover:text-blue-700 mb-4">
           National Retail Foundation Certifications
         </h3>
@@ -197,7 +195,6 @@ const UserRoadmap = () => {
             ))}
         </Stack>
 
-        {/* Detail Modal */}
         <Modal
           open={Boolean(selectedCert)}
           onClose={() => setSelectedCert(null)}

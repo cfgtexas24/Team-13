@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
       <nav className="flex justify-between items-center p-4">
         <div className="flex items-center">
           <Link to="/">
@@ -22,7 +21,6 @@ const LandingPage = () => {
         <Link to='onboarding/employer'><button className="bg-blue-900 text-white px-4 py-2 rounded">Employers</button></Link>
       </nav>
 
-      {/* Hero Section */}
       <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-8 md:mb-0">
           <h1 className="text-5xl font-bold mb-4">It's <span className="text-yellow-500">never</span> too late to start over. You don't have to see the whole journey,
@@ -44,7 +42,6 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Features Section */}
       <div className="bg-gray-300 py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-5">Our Mission</h2>

@@ -12,7 +12,6 @@ const Navbar = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleProfileMenu = () => setIsProfileMenuOpen(!isProfileMenuOpen);
 
-  // Function to toggle notification dropdown and fetch notifications
   const toggleNotificationDropdown = async () => {
     setIsNotificationOpen(!isNotificationOpen);
     if (!isNotificationOpen) {
@@ -136,7 +135,6 @@ const Navbar = () => {
               </svg>
             </button>
 
-            {/* Notification Dropdown */}
             {isNotificationOpen && (
               <div className="absolute right-0 mt-40 w-64 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 {loading ? (

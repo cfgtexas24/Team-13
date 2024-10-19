@@ -18,13 +18,12 @@ const ResumeCoverLetterPage = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between", // Space between the two viewers
-            gap: "20px", // Gap between columns
-            alignItems: "flex-start", // Align content at the top
+            justifyContent: "space-between", 
+            gap: "20px", 
+            alignItems: "flex-start", 
             marginBottom: "40px",
           }}
         >
-          {/* Resume Section */}
           <div style={{ width: '48%' }}>
             <div style={{ textAlign: 'center', marginBottom: '10px' }}>
               <a href={resumeURI} download="resume-template.jpeg">
@@ -36,7 +35,7 @@ const ResumeCoverLetterPage = () => {
                     border: 'none',
                     borderRadius: '4px',
                     cursor: 'pointer',
-                    marginBottom: '10px', // Adds space below the button
+                    marginBottom: '10px', 
                   }}
                 >
                   Download Resume
@@ -49,8 +48,6 @@ const ResumeCoverLetterPage = () => {
               style={{ width: '95%', height: '600px' }}
             />
           </div>
-
-          {/* Cover Letter Section */}
           <div style={{ width: '48%' }}>
             <div style={{ textAlign: 'center', marginBottom: '10px' }}>
               <a href={coverLetterURI} download="cover-letter.jpg">
@@ -62,7 +59,7 @@ const ResumeCoverLetterPage = () => {
                     border: 'none',
                     borderRadius: '4px',
                     cursor: 'pointer',
-                    marginBottom: '10px', // Adds space below the button
+                    marginBottom: '10px', 
                   }}
                 >
                   Download Cover Letter

@@ -177,7 +177,6 @@ const ProfileReturn = () => {
                 style={{ padding: '20px' }}
               >
                 <Grid container spacing={2} alignItems="center">
-                  {/* Certification Name Field */}
                   <Grid item xs={12} md={4}>
                     <TextField
                       label="Certification Name"
@@ -190,7 +189,6 @@ const ProfileReturn = () => {
                     />
                   </Grid>
 
-                  {/* Issued By Field */}
                   <Grid item xs={12} md={4}>
                     <TextField
                       label="Issued By"
@@ -202,8 +200,6 @@ const ProfileReturn = () => {
                       style={{ opacity: visibility.certifications ? 1 : 0.5 }}
                     />
                   </Grid>
-
-                  {/* Date Field */}
                   <Grid item xs={12} md={3}>
                     <TextField
                       label="Date"
@@ -218,7 +214,6 @@ const ProfileReturn = () => {
                     />
                   </Grid>
 
-                  {/* Action Buttons: Visibility & Delete */}
                   <Grid item xs={12} md={1} display="flex" justifyContent="center" alignItems="center">
                     <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
                       <IconButton onClick={() => handleVisibilityToggle('certifications')}>

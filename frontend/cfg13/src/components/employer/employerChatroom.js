@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 function EmployerChatroom() {
-  const { room } = useParams();  // Get the room name from the URL parameters
+  const { room } = useParams();  
 
-  // Subchats and corresponding messages
   const subchats = {
     General: [
       { sender: 'John', message: 'Hello, welcome to the General chat!' },
@@ -20,11 +19,10 @@ function EmployerChatroom() {
     ],
   };
 
-  const [currentSubchat, setCurrentSubchat] = useState('General');  // Default to General subchat
+  const [currentSubchat, setCurrentSubchat] = useState('General');  
   const [input, setInput] = useState('');  
   const [messages, setMessages] = useState(subchats[currentSubchat]);
 
-  // Event state
   const [events, setEvents] = useState([]);
   const [eventForm, setEventForm] = useState({ title: '', date: '', description: '' });
 
@@ -32,7 +30,7 @@ function EmployerChatroom() {
     if (input.trim()) {
       const updatedMessages = [...messages, { sender: 'You', message: input }];
       setMessages(updatedMessages);
-      subchats[currentSubchat] = updatedMessages;  // Update the current subchat messages
+      subchats[currentSubchat] = updatedMessages; 
       setInput('');
     }
   };
@@ -49,15 +47,14 @@ function EmployerChatroom() {
     }
   };
 
-  // Handle subchat change
+
   const handleSubchatChange = (subchat) => {
     setCurrentSubchat(subchat);
-    setMessages(subchats[subchat]);  // Load the messages for the selected subchat
+    setMessages(subchats[subchat]);  
   };
 
   return (
     <div style={{ display: 'flex', maxWidth: '1200px', margin: '0 auto', fontFamily: 'Roboto, sans-serif' }}>
-      {/* Subchat Sidebar */}
       <div style={{ width: '20%', borderRight: '1px solid #ddd', padding: '20px' }}>
         <h3>Subchats</h3>
         <ul style={{ listStyleType: 'none', padding: 0 }}>
@@ -78,19 +75,15 @@ function EmployerChatroom() {
           ))}
         </ul>
       </div>
-
-      {/* Main Chat Area */}
       <div style={{ width: '80%', padding: '20px' }}>
         <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>{room} Community - {currentSubchat} Chat</h2>
         
-        {/* Chat Messages */}
         <div style={{ height: '300px', overflowY: 'scroll', marginBottom: '20px', border: '1px solid #ddd', padding: '10px', borderRadius: '4px' }}>
           {messages.map((msg, index) => (
             <p key={index}><strong>{msg.sender}:</strong> {msg.message}</p>
           ))}
         </div>
 
-        {/* Message Input */}
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '40px' }}>
           <input
             type="text"
@@ -115,10 +108,8 @@ function EmployerChatroom() {
           </button>
         </div>
 
-        {/* Events Section */}
         <h3 style={{ marginBottom: '10px' }}>Community Events</h3>
 
-        {/* Create Event Form */}
         <div style={{ marginBottom: '30px', border: '1px solid #ddd', padding: '15px', borderRadius: '4px' }}>
           <h4>Create New Event</h4>
           <input
@@ -158,7 +149,6 @@ function EmployerChatroom() {
           </button>
         </div>
 
-        {/* Display Events */}
         <div>
           {events.length > 0 ? (
             <ul>

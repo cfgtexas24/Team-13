@@ -22,12 +22,12 @@ function JobCandidates() {
     ],
     matchPercent: 85,
   };
-  // Fetch data for applied and matched candidates
+  
   useEffect(() => {
-    // Fetch applied candidates
+   
     async function fetchAppliedCandidates() {
       try {
-        const company = "Slack"; // Replace with your dynamic company if needed
+        const company = "Slack"; 
         const response = await fetch(`http://localhost:4000/api/getApplicants/${company}`);
         
         if (response.ok) {
@@ -41,7 +41,7 @@ function JobCandidates() {
       }
     }
 
-    // Fetch matched candidates
+
     async function fetchMatchedCandidates() {
       try {
         const response = await fetch(`http://localhost:4000/api/getCandidateMatches/101`); // assume job ID is 101
@@ -63,7 +63,7 @@ function JobCandidates() {
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', display: 'flex', justifyContent: 'space-between' }}>
-      {/* Left Column: Candidates Who Applied */}
+
       <div style={{ flex: 1, paddingRight: '20px' }}>
         <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Candidates Who Applied</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
@@ -99,7 +99,6 @@ function JobCandidates() {
         </div>
       </div>
 
-      {/* Right Column: Display the hardcoded matched candidate */}
       <div style={{ flex: 1, paddingLeft: '20px' }}>
         <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Matching Candidate</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center' }}>
