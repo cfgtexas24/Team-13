@@ -23,7 +23,13 @@ function FeedbackForm() {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div
+      style={{
+        padding: "20px",
+        fontFamily:
+          '"Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif',
+      }}
+    >
       <h2
         style={{
           textAlign: "center",
@@ -118,7 +124,7 @@ function FeedbackForm() {
           type="submit"
           style={{
             padding: "10px 15px",
-            backgroundColor: "#007BFF",
+            backgroundColor: "#1E3A8A",
             color: "#fff",
             border: "none",
             borderRadius: "4px",
