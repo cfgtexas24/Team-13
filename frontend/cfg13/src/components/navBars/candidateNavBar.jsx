@@ -6,14 +6,13 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [notifications, setNotifications] = useState([]); // State for notifications
-  const [loading, setLoading] = useState(false); // State for loading notifications
-  const location = useLocation(); // Get the current location
+  const [notifications, setNotifications] = useState([]); 
+  const [loading, setLoading] = useState(false); 
+  const location = useLocation(); 
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleProfileMenu = () => setIsProfileMenuOpen(!isProfileMenuOpen);
 
-  // Fetch notifications when the notification dropdown is opened
   const toggleNotificationDropdown = async () => {
     setIsNotificationOpen(!isNotificationOpen);
     if (!isNotificationOpen) {
@@ -33,7 +32,6 @@ const Navbar = () => {
     }
   };
 
-  // Helper function to determine if a tab is active
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -130,7 +128,6 @@ const Navbar = () => {
           </div>
 
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            {/* Notification Icon */}
             <button
               type="button"
               className="relative rounded-full bg-gray-100 p-1 text-black hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -152,8 +149,6 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-
-            {/* Notification Dropdown */}
             {isNotificationOpen && (
               <div className="absolute right-0 mt-40 w-64 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 {loading ? (
