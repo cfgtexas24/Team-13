@@ -8,11 +8,11 @@ const EmployerDash = () => {
             .then(data => console.log(data))
             .catch(error => console.error('Error:', error));
 
-  const jobs = fetch('http://localhost:4000/api/getEmployerById/67890')
+  const jobs = fetch('http://localhost:4000/api/getAllEmployerJobPostings/67890')
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error));
-  
+
   return (
     <div>
         {/* <Jobs/> */}
