@@ -18,7 +18,7 @@ import JobCandidates from "./components/employer/jobCandidates";
 
 import EmployeeDash from "./components/candidate/EmployeeDash";
 import EmployeeHome from "./components/candidate/EmployeeHome";
-import CandJobs from "./components/employer/jobCandidates";
+import CandJobs from "./components/candidate/jobs";
 import Feedback from "./components/employer/feedback";
 import UserRoadmap from "./components/candidate/userRoadmap";
 import LandingPage from "./components/landingPage"; // Ensure the path is correct
