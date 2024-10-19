@@ -5,29 +5,28 @@ import EmployeeOnboarding from './EmployeeOnboarding';
  
  
 const EmployerOnboarding = () => {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [email, setEmail] = useState('')
-    const [dateOfBirth, setDateOfBirth] = useState('')
-    const [password, setPassword] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    const [location, setLocation] = useState('')
+    const [description, setDescription] = useState('')
+    const [industry, setIndustry] = useState('')
  
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(firstName, lastName, email, dateOfBirth, password) 
+        console.log(companyName, location, description, industry) 
     }
  
     return (
         <React.Fragment>
-            <h2>Register Form</h2>
+            <h2>Welcome</h2>
             <form onSubmit={handleSubmit} action={<Link to="/login" />}>
                 <Stack spacing={2} direction="row" sx={{marginBottom: 4}}>
                     <TextField
                         type="text"
                         variant='outlined'
                         color='secondary'
-                        label="First Name"
-                        onChange={e => setFirstName(e.target.value)}
-                        value={firstName}
+                        label="Company Name"
+                        onChange={e => setCompanyName(e.target.value)}
+                        value={companyName}
                         fullWidth
                         required
                     />
@@ -35,42 +34,31 @@ const EmployerOnboarding = () => {
                         type="text"
                         variant='outlined'
                         color='secondary'
-                        label="Last Name"
-                        onChange={e => setLastName(e.target.value)}
-                        value={lastName}
+                        label="Location"
+                        onChange={e => setLocation(e.target.value)}
+                        value={location}
                         fullWidth
                         required
                     />
                 </Stack>
                 <TextField
-                    type="email"
+                    type="description"
                     variant='outlined'
                     color='secondary'
-                    label="Email"
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
+                    label="Description"
+                    onChange={e => setDescription(e.target.value)}
+                    value={description}
                     fullWidth
                     required
                     sx={{mb: 4}}
                 />
                 <TextField
-                    type="password"
+                    type="description"
                     variant='outlined'
                     color='secondary'
-                    label="Password"
-                    onChange={e => setPassword(e.target.value)}
-                    value={password}
-                    required
-                    fullWidth
-                    sx={{mb: 4}}
-                />
-                <TextField
-                    type="date"
-                    variant='outlined'
-                    color='secondary'
-                    label="Date of Birth"
-                    onChange={e => setDateOfBirth(e.target.value)}
-                    value={dateOfBirth}
+                    label="Industry"
+                    onChange={e => setIndustry(e.target.value)}
+                    value={industry}
                     fullWidth
                     required
                     sx={{mb: 4}}
