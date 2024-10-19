@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-function Jobs() {
+function CandJobs() {
   // Sample job application data
   const [applications] = useState([
     {
@@ -43,7 +43,7 @@ function Jobs() {
       <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Job Postings</h2>
       
       {/* Cards Layout with Flexbox */}
-      <Link to="" style={{ color: '#007BFF', textDecoration: 'none', display: 'block', marginBottom: '20px' }}>
+      <Link to="applyJob" style={{ color: '#007BFF', textDecoration: 'none', display: 'block', marginBottom: '20px' }}>
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {/* Sort applications by percentMatch in descending order */}
         {applications
@@ -99,4 +99,4 @@ function Jobs() {
   );
 }
 
-export default Jobs;
+export default CandJobs;
