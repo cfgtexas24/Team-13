@@ -28,7 +28,7 @@ import UserRoadmap from "./components/candidate/userRoadmap";
 function App() {
   return (
     <div>
-      <Routes>x
+      <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
@@ -43,7 +43,7 @@ function App() {
           </Route>
 
           <Route path="candidate" element={<EmployeeHome />}>
-            <Route index path="dashboard" element={<EmployeeDash />} />
+            <Route index element={<EmployeeDash />} />
             <Route path="userRoadmap" element={<UserRoadmap />} />
           </Route>
 
