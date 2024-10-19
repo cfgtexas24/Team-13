@@ -44,7 +44,7 @@ function App() {
 
           <Route path="candidate" element={<EmployeeHome />}>
             <Route index path="dashboard" element={<EmployeeDash />} />
-            <Route path="jobs" element={<Jobs />} />
+            <Route path="userRoadmap" element={<UserRoadmap />} />
           </Route>
 
           <Route path="profile" element={<Profile />} />
