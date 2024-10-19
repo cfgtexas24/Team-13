@@ -5,7 +5,7 @@ import { getEmployerById, getAllEmployerJobPostings, createJobPosting, getPotent
 const router = express.Router();
 
 // Employee routes
-router.get('/getEmployeeById/:id/:id', getEmployeeById);
+router.get('/getEmployeeById/:id/', getEmployeeById);
 router.get('/getApplicationById/:employeeId/:applicationId', getApplicationById);
 router.get('/getAllApplications/:id', getAllApplications);
 router.get('/createApplication', createApplication)
