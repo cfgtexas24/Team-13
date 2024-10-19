@@ -97,6 +97,25 @@
           "date_applied": "2023-08-30"
         }
       ]
+    },
+    {
+      "id": 82503,
+      "name": "Spencer Le",
+      "location": "Houston, TX",
+      "skills": ["JavaScript", "React", "CSS", "HTML"],
+      "certifications": [
+        {
+          "name": "Certified Front-End Developer",
+          "issued_by": "W3Schools",
+          "date_issued": "2023-05-10"
+        },
+        {
+          "name": "React.js Developer Certification",
+          "issued_by": "Udemy",
+          "date_issued": "2022-11-15"
+        }
+      ],
+      "matchPercent": 30
     }
   ]
 }
