@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json());
 // Enable CORS for all routes
 app.use(cors());
-// Or enable CORS for specific origin (your frontend)
-app.use(cors({ origin: 'http://localhost:3000' }));
+// // Or enable CORS for specific origin (your frontend)
+// app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use('/api', routes);
 
