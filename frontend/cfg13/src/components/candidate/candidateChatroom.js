@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChevronRight, Send, Calendar } from 'lucide-react';
 
 function CandidateChatroom() {
   const { room } = useParams();
   const subchats = {
-    General: [
-      { sender: 'John', message: 'Hello, welcome to the General chat!' },
-      { sender: 'Jane', message: 'Hey! What’s going on?' },
-    ],
-    Projects: [
-      { sender: 'Alice', message: 'Let’s discuss project ideas here.' },
-      { sender: 'Bob', message: 'Sure, I’m working on a new app.' },
-    ],
-    Events: [
-      { sender: 'Charlie', message: 'What community events are coming up?' },
-      { sender: 'Dana', message: 'We should have a React workshop.' },
-    ],
+    General: [],
+    Projects: [],
+    Events: [],
   };
 
   const [currentSubchat, setCurrentSubchat] = useState('General');
@@ -25,7 +16,7 @@ function CandidateChatroom() {
   const [events, setEvents] = useState([]);
   const [eventForm, setEventForm] = useState({ title: '', date: '', description: '' });
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim()) {
       const updatedMessages = [...messages, { sender: 'You', message: input }];
       setMessages(updatedMessages);

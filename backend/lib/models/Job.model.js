@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { start } from "repl";
 
 const jobSchema = new mongoose.Schema({
     title: {
