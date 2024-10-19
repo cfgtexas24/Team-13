@@ -12,6 +12,7 @@ function Jobs({ jobs }) {
       <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Your Job Postings</h2>
       
       {/* Cards Layout with Flexbox */}
+      <Link to="jobCandidates">
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {/* Iterate over the jobs array */}
         {jobs?.map((job) => (
@@ -39,8 +40,11 @@ function Jobs({ jobs }) {
             <p style={{ margin: '5px 0' }}><strong>End Date:</strong> {job.end_date}</p>
           </div>
         ))}
+
       </div>
+      </Link>
     </div>
+
   );
 }
 
