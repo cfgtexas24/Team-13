@@ -36,6 +36,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
           <Route path="jobs" element={<Jobs />} />
+          <Route path="employerJobApplicants" element={<JobCandidates />} />
           <Route path="*" element={<NoMatch />} /> 
         </Route>
       </Routes>
