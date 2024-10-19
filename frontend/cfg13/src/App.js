@@ -28,6 +28,9 @@ import EmployerChatRoom from "./components/employer/employerChatroom";
 import CandidateCommunity from "./components/candidate/candidateCommunity";
 import CandidateChatRoom from "./components/candidate/candidateChatroom";
 
+import Admin from "./components/admin/admin";
+
+
 function App() {
   return (
     <div>
@@ -35,6 +38,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<LandingPage />} />
 
+          <Route path="admin" element={<Admin />}/>
           <Route path="onboarding" element={<Onboarding />}>
             <Route path="candidate" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
@@ -42,6 +46,7 @@ function App() {
 
           <Route path="employer" element={<EmployerHome />}>
             <Route index element={<EmployerDash />} />
+            <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
             <Route path="createJobPage" element={<CreateJobPage />} />
             <Route path="community" element={<EmployerCommunity />} />
@@ -65,6 +70,8 @@ function App() {
           <Route path="jobs" element={<Jobs />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
+
+
       </Routes>
     </div>
   );

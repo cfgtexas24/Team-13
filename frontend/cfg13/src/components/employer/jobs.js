@@ -11,9 +11,10 @@ function Jobs({ jobs }) {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+    <div className="p-6 bg-gray-100 min-h-screen">
       <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Your Job Postings</h2>
-      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+      <Link to="jobCandidates">
+      <div className='bg-gray-100' style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {jobs?.map((job) => (
           <div
             key={job.job_id}
