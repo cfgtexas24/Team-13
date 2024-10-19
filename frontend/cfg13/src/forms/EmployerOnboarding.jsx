@@ -16,7 +16,7 @@ const EmployerOnboarding = () => {
             industry
         };
         console.log(companyName, location, description, industry);
-        const employer = fetch('http://localhost:4000/api/getEmployerById/67890')
+        const employer = fetch('http://localhost:4000/api/getAllEmployerJobPostings/67890')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Error:', error));
