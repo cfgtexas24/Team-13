@@ -13,7 +13,6 @@ const EmployerDash = () => {
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error));
 
-  
   return (
     <div>
         <Jobs/>

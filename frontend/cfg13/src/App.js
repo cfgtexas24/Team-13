@@ -21,6 +21,9 @@ import EmployeeDash from "./components/candidate/EmployeeDash";
 import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 import Feedback from "./components/employer/feedback";
+import UserRoadmap from "./components/candidate/userRoadmap";
+
+
 
 function App() {
   return (
@@ -40,7 +43,7 @@ function App() {
           </Route>
 
           <Route path="candidate" element={<EmployeeHome />}>
-            <Route index element={<EmployeeDash />} />
+            <Route index path="dashboard" element={<EmployeeDash />} />
             <Route path="jobs" element={<Jobs />} />
           </Route>
 
@@ -56,3 +59,4 @@ function App() {
 }
 
 export default App;
+
