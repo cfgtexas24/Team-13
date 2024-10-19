@@ -1,8 +1,11 @@
 import React from "react";
+import DocViewer from "react-doc-viewer";
+
 
 const ResumeCoverLetterPage = () => {
   return (
     <div style={{ padding: "20px", fontFamily: "Roboto, sans-serif" }}>
+
       <h1
         style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}
       >
