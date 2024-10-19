@@ -75,6 +75,7 @@ const JobCreationForm = () => {
   };
 
   return (
+    <div className='min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8'>
     <div className="max-w-3xl mx-auto">
       <h1 className="mt-10 text-3xl font-extrabold text-gray-900 mb-8 text-center" style={{ fontFamily: "Roboto, sans-serif", fontSize: "30px" }}>
         Create Job Roles
@@ -206,6 +207,7 @@ const JobCreationForm = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

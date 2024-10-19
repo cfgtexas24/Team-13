@@ -1,39 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { 
+  Code as ReactIcon, 
+  Server as NodeIcon, 
+  Database as DataScienceIcon, 
+  Brain as MachineLearningIcon, 
+  Paintbrush as DesignIcon 
+} from 'lucide-react';
 
-const rooms = ['React', 'Node.js', 'Data Science', 'Machine Learning', 'UI/UX Design'];
+const rooms = [
+  { name: 'React', icon: ReactIcon },
+  { name: 'Node.js', icon: NodeIcon },
+  { name: 'Data Science', icon: DataScienceIcon },
+  { name: 'Machine Learning', icon: MachineLearningIcon },
+  { name: 'UI/UX Design', icon: DesignIcon }
+];
 
-function EmployerCommunity() {
+const EmployerCommunity = () => {
   return (
-    <div style={{ padding: '20px', fontFamily: 'Roboto, sans-serif' }}>
-      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Join a Community!</h2>
-      
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
-        {rooms.map((room) => (
-          <Link key={room} to={`/employer/community/${room}`} style={{ textDecoration: 'none' }}>
-            <div style={{
-              padding: '20px',
-              border: '1px solid #ddd',
-              borderRadius: '8px',
-              backgroundColor: '#f9f9f9',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-              transition: 'background-color 0.3s',
-              width: '200px',         // Set fixed width
-              height: '150px',        // Set fixed height to ensure uniform size
-              textAlign: 'center',
-              display: 'flex',        // Center content both horizontally and vertically
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f1f1f1'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f9f9f9'}>
-              <h3>{room} Room</h3>
+    <div className="p-8 font-sans bg-gray-100 min-h-screen">
+      <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">
+        Community Rooms
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {rooms.map(({ name, icon: Icon }) => (
+          <Link key={name} to={`/candidate/community/${name}`} className="block">
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 h-full flex flex-col justify-between">
+              <div className="flex items-center justify-center mb-4">
+                <Icon size={48} className="text-blue-500" />
+              </div>
+              <h3 className="text-xl font-semibold text-center text-gray-700 mb-2">{name}</h3>
+              <p className="text-sm text-gray-500 text-center">Join the discussion on {name}</p>
             </div>
           </Link>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default EmployerCommunity;
