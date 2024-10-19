@@ -6,11 +6,11 @@ const rooms = ['React', 'Node.js', 'Data Science', 'Machine Learning', 'UI/UX De
 function CandidateCommunity() {
   return (
     <div style={{ padding: '20px', fontFamily: 'Roboto, sans-serif' }}>
-      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Candidate: Join a Community!</h2>
+      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Join a Community!</h2>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
         {rooms.map((room) => (
-          <Link key={room} to={`candidate/community/${room}`} style={{ textDecoration: 'none' }}>
+          <Link key={room} to={`/candidate/community/${room}`} style={{ textDecoration: 'none' }}>
             <div style={{
               padding: '20px',
               border: '1px solid #ddd',
