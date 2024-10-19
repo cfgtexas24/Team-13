@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/rebirthLogo.png';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import logo from "../../assets/rebirthLogo.png";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,12 +26,34 @@ const Navbar = () => {
               <span className="absolute -inset-0.5"></span>
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
                 </svg>
               )}
             </button>
@@ -43,7 +65,9 @@ const Navbar = () => {
                 <Link
                   to=""
                   className={`rounded-md px-3 py-2 text-sm font-medium ${
-                    isActive('candidate') ? 'bg-yellow-400 text-white' : 'text-black hover:bg-yellow-200'
+                    isActive("candidate")
+                      ? "bg-yellow-400 text-white"
+                      : "text-black hover:bg-yellow-200"
                   }`}
                 >
                   Dashboard
@@ -51,10 +75,22 @@ const Navbar = () => {
                 <Link
                   to="userRoadmap"
                   className={`rounded-md px-3 py-2 text-sm font-medium ${
-                    isActive('/userRoadmap') ? 'bg-yellow-400 text-white' : 'text-black hover:bg-yellow-200'
+                    isActive("/userRoadmap")
+                      ? "bg-yellow-400 text-white"
+                      : "text-black hover:bg-yellow-200"
                   }`}
                 >
                   Roadmaps
+                </Link>
+                <Link
+                  to="userRoadmap"
+                  className={`rounded-md px-3 py-2 text-sm font-medium ${
+                    isActive("/userRoadmap")
+                      ? "bg-yellow-400 text-white"
+                      : "text-black hover:bg-yellow-200"
+                  }`}
+                >
+                  Templates
                 </Link>
               </div>
             </div>
@@ -78,10 +114,16 @@ const Navbar = () => {
 
               {isProfileMenuOpen && (
                 <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700">
+                  <Link
+                    to="/profile"
+                    className="block px-4 py-2 text-sm text-gray-700"
+                  >
                     Your Profile
                   </Link>
-                  <Link to="/signout" className="block px-4 py-2 text-sm text-gray-700">
+                  <Link
+                    to="/signout"
+                    className="block px-4 py-2 text-sm text-gray-700"
+                  >
                     Sign out
                   </Link>
                 </div>
@@ -97,7 +139,9 @@ const Navbar = () => {
             <Link
               to="/employer"
               className={`block rounded-md px-3 py-2 text-base font-medium ${
-                isActive('/employer') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                isActive("/employer")
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white"
               }`}
             >
               Dashboard
@@ -105,7 +149,9 @@ const Navbar = () => {
             <Link
               to="/team"
               className={`block rounded-md px-3 py-2 text-base font-medium ${
-                isActive('/team') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                isActive("/team")
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white"
               }`}
             >
               Team
@@ -113,7 +159,9 @@ const Navbar = () => {
             <Link
               to="/projects"
               className={`block rounded-md px-3 py-2 text-base font-medium ${
-                isActive('/projects') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                isActive("/projects")
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white"
               }`}
             >
               Projects
@@ -121,7 +169,9 @@ const Navbar = () => {
             <Link
               to="/calendar"
               className={`block rounded-md px-3 py-2 text-base font-medium ${
-                isActive('/calendar') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                isActive("/calendar")
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white"
               }`}
             >
               Calendar
