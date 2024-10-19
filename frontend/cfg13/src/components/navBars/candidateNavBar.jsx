@@ -43,6 +43,7 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
+<<<<<<< HEAD
                 <Link
                   to="dashboard"
                   className={`rounded-md px-3 py-2 text-sm font-medium ${
@@ -59,6 +60,11 @@ const Navbar = () => {
                 >
                   Roadmaps
                 </Link>
+=======
+                <Link to="/candidate" className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-medium text-white">Dashboard</Link>
+                <Link to="roadmaps" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Roadmaps</Link>
+                <Link to="jobs" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Jobs</Link>
+>>>>>>> d77e6a5337eb28e1ac7bbc86a99a1e04f8962618
               </div>
             </div>
           </div>

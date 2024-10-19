@@ -33,15 +33,18 @@ function App() {
             <Route path="employee" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
+
           <Route path="employer" element={<EmployerHome />}>
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
           </Route>
+
           <Route path="candidate" element={<EmployeeHome />}>
             <Route index path="dashboard" element={<EmployeeDash />} />
             <Route path="userRoadmap" element={<UserRoadmap />} />
           </Route>
+
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
           <Route path="jobs" element={<Jobs />} />

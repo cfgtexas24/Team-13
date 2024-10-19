@@ -3,9 +3,7 @@ import Jobs from '../jobs'
 
 const EmployerDash = () => {
   return (
-    <div>
-        <Jobs/>
-        
+    <div>        
         <></>
     </div>
   )

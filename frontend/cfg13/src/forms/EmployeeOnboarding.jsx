@@ -30,6 +30,10 @@ const EmployeeOnboarding = () => {
             certifications
         };
         console.log(formData);
+        const employee = fetch('http://localhost:4000/api/getEmployeeById/12345')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
     };
 
     return (
