@@ -5,10 +5,31 @@ import logo from '../../assets/rebirthLogo.png';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [notifications, setNotifications] = useState([]); // State for notifications
+  const [loading, setLoading] = useState(false); // State for loading notifications
   const location = useLocation(); // Get the current location
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleProfileMenu = () => setIsProfileMenuOpen(!isProfileMenuOpen);
+
+  // Fetch notifications when the notification dropdown is opened
+  const toggleNotificationDropdown = async () => {
+    setIsNotificationOpen(!isNotificationOpen);
+    if (!isNotificationOpen) {
+      setLoading(true);
+      try {
+        const response = await fetch('http://localhost:4000/api/getPotentialJobs/82503'); 
+        const data = await response.json();
+        console.log('recieved data: ', data);
+        setNotifications(data); 
+      } catch (error) {
+        console.error('Failed to fetch notifications:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
 
   // Helper function to determine if a tab is active
   const isActive = (path) => location.pathname === path;
@@ -61,6 +82,46 @@ const Navbar = () => {
           </div>
 
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          {/* Notification Icon */}
+          <button
+              type="button"
+              className="relative rounded-full bg-gray-100 p-1 text-black hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              onClick={toggleNotificationDropdown}
+            >
+              <span className="sr-only">View notifications</span>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+                />
+              </svg>
+            </button>
+
+            {/* Notification Dropdown */}
+            {isNotificationOpen && (
+              <div className="absolute right-0 mt-40 w-64 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                {loading ? (
+                  <div className="px-4 py-2 text-sm text-gray-700">Loading...</div>
+                ) : notifications.length === 0 ? (
+                  <div className="px-4 py-2 text-sm text-gray-700">No new notifications</div>
+                ) : (
+                  notifications.map((notification, index) => (
+                    <div key={index} className="px-4 py-2 text-sm text-gray-700">
+                      You have been matched with {notification.company}
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
             <div className="relative ml-3">
               <button
                 type="button"
