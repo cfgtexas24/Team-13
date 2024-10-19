@@ -21,16 +21,17 @@ import JobCandidates from "./components/employer/jobCandidates";
 function App() {
   return (
     <div>
-      <Routes>
+      <Routes>x
         <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
             <Route path="employee" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
-          <Route index element={<Home />} />
-          <Route path="employer" element={<EmployerHome />}>
-            <Route path="dash" element={<EmployerDash />} />
+          <Route path="employerDash" element={<EmployerHome />}>
+            <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
+            <Route path="jobs" element={<Jobs />} />
           </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />

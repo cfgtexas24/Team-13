@@ -5,7 +5,7 @@ import Jobs from '../jobs'
 const EmployerDash = () => {
   return (
     <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <Jobs/>
     </div>
   )
