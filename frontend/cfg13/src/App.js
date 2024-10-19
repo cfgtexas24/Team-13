@@ -16,21 +16,27 @@ import EmployerOnboarding from './forms/EmployerOnboarding'
 
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
+
+import EmployeeDash from "./components/employee/EmployeeDash";
+import EmployeeHome from "./components/employee/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 
 function App() {
   return (
     <div>
-      <Routes>
+      <Routes>x
         <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
             <Route path="employee" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
-          <Route index element={<Home />} />
           <Route path="employer" element={<EmployerHome />}>
-            <Route path="dash" element={<EmployerDash />} />
+            <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
+          </Route>
+          <Route path="employee" element={<EmployeeHome />}>
+            <Route index element={<EmployeeDash />} />
           </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />

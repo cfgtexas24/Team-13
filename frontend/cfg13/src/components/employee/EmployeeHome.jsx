@@ -5,8 +5,8 @@ import Navbar from '../navBars/employerNavbar'
 const EmployerHome = () => {
   return (
     <div>
-      <Navbar />
-      <Outlet />
+      <Navbar/>
+      <Outlet/>
     </div>
   )
 }
