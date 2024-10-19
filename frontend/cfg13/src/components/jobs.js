@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 function Jobs() {
   // Sample job application data
   const [applications] = useState([

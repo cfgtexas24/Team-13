@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/rebirthLogo.png';
+import logo from '../../assets/rebirthLogo.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,9 +40,9 @@ const Navbar = () => {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 <Link to="/employer" className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-medium text-white">Dashboard</Link>
-                <Link to="/team" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Team</Link>
-                <Link to="/projects" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Projects</Link>
-                <Link to="/calendar" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Calendar</Link>
+                <Link to="/createjob" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Create Job</Link>
+                <Link to="/feedback" className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 ">Feedback</Link>
+                
               </div>
             </div>
           </div>
