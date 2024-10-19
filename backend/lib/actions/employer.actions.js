@@ -24,7 +24,7 @@ async function createEmployer(employer) {
     }
 }
 
-async function getEmployerById(id) {
+async function getEmployerByIdDb(id) {
     try {
         console.log('connecting to db...');
         await connectToDB();
@@ -38,7 +38,7 @@ async function getEmployerById(id) {
     }
 }
 
-async function getAllEmployerJobPostings(employerId) {
+async function getAllEmployerJobPostingsDb(employerId) {
     try {
         console.log('connecting to db...');
         await connectToDB();
@@ -52,4 +52,4 @@ async function getAllEmployerJobPostings(employerId) {
     }
 }
 
-export { createEmployer, getEmployerById, getAllEmployerJobPostings };
+export { createEmployer, getEmployerByIdDb, getAllEmployerJobPostingsDb };
