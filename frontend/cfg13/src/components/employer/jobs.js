@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Jobs({ jobs }) {
-  console.log(jobs);
-  
   const [selectedJob, setSelectedJob] = useState(null);
+  const navigate = useNavigate();
+
+  const handleJobClick = (job) => {
+    setSelectedJob(job);
+    navigate(`/employer/jobCandidates/${job.job_id}`);  // Corrected navigation URL
+  };
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Your Job Postings</h2>
-      <Link to="jobCandidates">
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {jobs?.map((job) => (
           <div
@@ -25,7 +28,7 @@ function Jobs({ jobs }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f1f1f1'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f9f9f9'}
-            onClick={() => setSelectedJob(job)}
+            onClick={() => handleJobClick(job)} // Trigger the click handler
           >
             <h3 style={{ margin: '0 0 10px 0', color: '#007BFF' }}>{job.title}</h3>
             <p style={{ margin: '5px 0' }}><strong>Location:</strong> {job.location}</p>
@@ -36,11 +39,8 @@ function Jobs({ jobs }) {
             <p style={{ margin: '5px 0' }}><strong>End Date:</strong> {job.end_date}</p>
           </div>
         ))}
-
       </div>
-      </Link>
     </div>
-
   );
 }
 
