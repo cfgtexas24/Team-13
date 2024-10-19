@@ -14,6 +14,7 @@ import ProfileReturn from "./components/profileReturn";
 import EmployeeOnboarding from './forms/EmployeeOnboarding'
 import EmployerOnboarding from './forms/EmployerOnboarding'
 import EmployerDash from "./components/dashboards/EmployerDash";
+import JobCandidates from "./employer/JobCandidates";
 
 const theme = createTheme()
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
           <Route path="jobs" element={<Jobs />} />
+          <Route path="employerJobApplicants" element={<JobCandidates />} />
           <Route path="*" element={<NoMatch />} /> 
         </Route>
       </Routes>
