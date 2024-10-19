@@ -18,8 +18,12 @@ function EmployerCommunity() {
               backgroundColor: '#f9f9f9',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               transition: 'background-color 0.3s',
-              width: '200px',
+              width: '200px',         // Set fixed width
+              height: '150px',        // Set fixed height to ensure uniform size
               textAlign: 'center',
+              display: 'flex',        // Center content both horizontally and vertically
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f1f1f1'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f9f9f9'}>

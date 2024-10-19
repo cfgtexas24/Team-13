@@ -43,8 +43,6 @@ function App() {
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
-            
-            {/* Employer-Specific Community Routes */}
             <Route path="community" element={<EmployerCommunity />} />
             <Route path="community/:room" element={<EmployerChatRoom />} />
           </Route>
@@ -53,8 +51,6 @@ function App() {
           <Route path="candidate" element={<EmployeeHome />}>
             <Route index element={<EmployeeDash />} />
             <Route path="userRoadmap" element={<UserRoadmap />} />
-            
-            {/* Candidate-Specific Community Routes */}
             <Route path="community" element={<CandidateCommunity />} />
             <Route path="community/:room" element={<CandidateChatRoom />} />
           </Route>
