@@ -7,7 +7,7 @@ function Jobs({ jobs }) {
 
   const handleJobClick = (job) => {
     setSelectedJob(job);
-    navigate(`/employer/jobCandidates/${job.job_id}`);  // Corrected navigation URL
+    navigate(`/employer/jobCandidates/${job.job_id}`);  
   };
 
   return (
@@ -29,7 +29,7 @@ function Jobs({ jobs }) {
             }}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f1f1f1'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f9f9f9'}
-            onClick={() => handleJobClick(job)} // Trigger the click handler
+            onClick={() => handleJobClick(job)} 
           >
             <h3 style={{ margin: '0 0 10px 0', color: '#007BFF' }}>{job.title}</h3>
             <p style={{ margin: '5px 0' }}><strong>Location:</strong> {job.location}</p>

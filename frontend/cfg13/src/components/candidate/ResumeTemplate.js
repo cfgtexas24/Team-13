@@ -12,12 +12,9 @@ const ResumeCoverLetterPage = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-        <h1
-          style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}
-        >
-          Resume and Cover Letter Templates
+        <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
+            Resume and Cover Letter Templates
         </h1>
-
         <div
           style={{
             display: "flex",

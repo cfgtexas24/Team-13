@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../navBars/employerNavbar';
-import { Link } from 'react-router-dom';
+import { Building2, MapPin, DollarSign, Users } from 'lucide-react';
 
 const EmployerDash = () => {
   const [employer, setEmployer] = useState(null);
   const [jobs, setJobs] = useState([]);
 
-  // Synthetic employer data
+  // synthetic employer data
   const syntheticEmployer = {
     id: 67890,
-    name: "TechWave Solutions",
+    name: "J.P. Morgan Chase & Co.",
     industry: "Technology",
   };
 
-  // Synthetic job postings data
+  // synthetic job postings data
   const syntheticJobs = [
     {
       id: 1,
@@ -58,7 +57,6 @@ const EmployerDash = () => {
   ];
 
   useEffect(() => {
-    // Simulate fetching synthetic data
     const fetchData = async () => {
       try {
         // const employerResponse = await fetch('http://localhost:4000/api/getEmployerById/67138f81fec9af66acc5505a');
@@ -72,10 +70,7 @@ const EmployerDash = () => {
         // const jobsResponse = await fetch(`http://localhost:4000/api/getEmployerJobPostings/${employerData?.employer?._id}`);
         // const jobsData = await jobsResponse.json();
         // console.log('Jobs:', jobsData);
-        // Set synthetic employer data
         setEmployer(syntheticEmployer);
-
-        // Set synthetic jobs data
         setJobs(syntheticJobs);
       } catch (error) {
         console.error('Error:', error);
@@ -86,53 +81,56 @@ const EmployerDash = () => {
   }, []);
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#f0f2f5', minHeight: '100vh' }}>
-      <div style={{ padding: '20px' }}>
-        <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>
-          {employer?.name} Dashboard
-        </h2>
-        <h3 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Open Job Roles</h3>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
+            {employer?.name} Dashboard
+          </h1>
+          <p className="text-gray-500 text-center">Open Job Roles</p>
+        </div>
 
-        {/* Cards Layout with Flexbox */}
-        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.length > 0 ? (
             jobs.map((job) => (
-              <Link
-                to="jobCandidates"
+              <div 
                 key={job.id}
-                style={{ color: 'inherit', textDecoration: 'none' }}
+                className="group bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               >
-                <div
-                  style={{
-                    width: '300px',
-                    padding: '20px',
-                    border: '1px solid #ddd',
-                    borderRadius: '12px',
-                    backgroundColor: '#fff',
-                    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)',
-                    transition: 'transform 0.3s, box-shadow 0.3s',
-                    textAlign: 'center',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.1)';
-                  }}
-                >
-                  <h3 style={{ margin: '0 0 10px 0', color: '#007BFF' }}>{job.title}</h3>
-                  <p style={{ margin: '5px 0' }}><strong>Location:</strong> {job.location}</p>
-                  <p style={{ margin: '5px 0' }}><strong>Salary:</strong> {job.salary}</p>
-                  <p style={{ margin: '10px 0', fontStyle: 'italic', color: '#555' }}>
-                    <strong>Department:</strong> {job.department}
-                  </p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-blue-600 group-hover:text-blue-700 mb-4">
+                    {job.title}
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center text-gray-600">
+                      <MapPin className="h-5 w-5 mr-2 text-gray-400" />
+                      <span>{job.location}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <DollarSign className="h-5 w-5 mr-2 text-gray-400" />
+                      <span>{job.salary}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <Building2 className="h-5 w-5 mr-2 text-gray-400" />
+                      <span>{job.department}</span>
+                    </div>
+                    <div className="pt-4">
+                      <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700">
+                        View Details
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </Link>
+              </div>
             ))
           ) : (
-            <p style={{ textAlign: 'center' }}>No job postings available.</p>
+            <div className="col-span-full">
+              <div className="text-center py-12">
+                <Users className="mx-auto h-12 w-12 text-gray-400" />
+                <h3 className="mt-2 text-lg font-medium text-gray-900">No job postings</h3>
+                <p className="mt-1 text-gray-500">Get started by creating a new job posting.</p>
+              </div>
+            </div>
           )}
         </div>
       </div>

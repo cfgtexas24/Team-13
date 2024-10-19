@@ -41,10 +41,10 @@ function JobCandidates() {
       }
     }
 
-    // Fetch matched candidates (who didn't apply but match the job)
+    // Fetch matched candidates
     async function fetchMatchedCandidates() {
       try {
-        const response = await fetch(`http://localhost:4000/api/getCandidateMatches/101`); // Assume job ID is 101
+        const response = await fetch(`http://localhost:4000/api/getCandidateMatches/101`); // assume job ID is 101
         
         if (response.ok) {
           const data = await response.json();

@@ -168,15 +168,15 @@ const UserRoadmap = () => {
     <Box sx={{ bgcolor: '#f5f5f5', minHeight: '100vh', paddingTop: 3, paddingBottom: 3 }}>
       <Box sx={{ maxWidth: 900, margin: 'auto', p: 3 }}>
         <Typography variant="h4" gutterBottom sx={{ mb: 4 }} >
-        <h1 style={{ fontSize: "36px", textAlign: "center", marginBottom: "40px" }}>
-          Professional Certifications
-        </h1>
+          <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
+            Professional Certifications
+          </h1>
         </Typography>
         
         {/* Google Certifications Section */}
-        <Typography variant="h5" gutterBottom sx={{ mb: 3, mt: 4, color: '#4285F4' }}>
+        <h3 className="text-xl font-semibold text-blue-600 group-hover:text-blue-700 mb-4">
           Google Certifications
-        </Typography>
+        </h3>
         <Stack spacing={2} sx={{ mb: 4 }}>
           {certificates
             .filter(cert => cert.provider === "Google")
@@ -186,9 +186,9 @@ const UserRoadmap = () => {
         </Stack>
 
         {/* NRF Certifications Section */}
-        <Typography variant="h5" gutterBottom sx={{ mb: 3, mt: 4, color: '#00848E' }}>
+        <h3 className="text-xl font-semibold text-[#00848E] group-hover:text-blue-700 mb-4">
           National Retail Foundation Certifications
-        </Typography>
+        </h3>
         <Stack spacing={2}>
           {certificates
             .filter(cert => cert.provider === "National Retail Foundation")
