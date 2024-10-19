@@ -7,7 +7,7 @@ const Onboarding = () => {
   return (
     <Routes>
       <Route path="employer" element={<EmployerOnboarding />} />
-      <Route path="employee" element={<EmployeeOnboarding />} />
+      <Route path="candidate" element={<EmployeeOnboarding />} />
     </Routes>
     
   )

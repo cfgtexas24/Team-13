@@ -13,6 +13,7 @@ import ProfileReturn from "./components/profileReturn";
 
 import EmployeeOnboarding from "./forms/EmployeeOnboarding";
 import EmployerOnboarding from "./forms/EmployerOnboarding";
+import CreateJobPage from "./components/employer/createJobPage";
 
 import RolesJobs from "./components/candidates/RolesRoadmaps";
 import EmployerHome from "./components/employer/EmployerHome";
@@ -32,7 +33,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
-            <Route path="employee" element={<EmployeeOnboarding />} />
+            <Route path="candidate" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
 
@@ -40,11 +41,12 @@ function App() {
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
+            <Route path="createJobPage" element={<CreateJobPage />} />
           </Route>
 
           <Route path="candidate" element={<EmployeeHome />}>
-            <Route index path="dashboard" element={<EmployeeDash />} />
-            <Route path="userRoadmap" element={<UserRoadmap />} />
+            <Route index element={<EmployeeDash />} />
+            <Route path="jobs" element={<Jobs />} />
           </Route>
 
           <Route path="profile" element={<Profile />} />
