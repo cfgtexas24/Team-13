@@ -1,5 +1,33 @@
 import fs from 'fs/promises';  
-import {createEmployer} from '../lib/actions/employer.actions.js';
+import {createEmployer, getEmployerById, getAllEmployerJobPostings} from '../lib/actions/employer.actions.js';
+
+export const getAllEmployerJobPostingsRoute = async (req, res) => {
+  try {
+    const employerId = req.params.id;
+    const jobPostings = await getAllEmployerJobPostings(employerId);
+    if (jobPostings.error) {
+      return res.status(404).json({ message: 'Job postings not found' });
+    }
+    res.status(200).json(jobPostings);
+  } catch (error) {
+    console.error('Error getting employer job postings:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+export const getEmployerByIdRoute = async (req, res) => {
+  try {
+    const employerId = req.params.id;
+    const employer = await getEmployerById(employerId);
+    if (employer.error) {
+      return res.status(404).json({ message: 'Employer not found' });
+    }
+    res.status(200).json(employer);
+  } catch (error) {
+    console.error('Error getting employer by ID:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
 
 export const createEmployerRoute = async (req, res) => {
   try {
@@ -75,34 +103,6 @@ async function loadJobData() {
       console.error('Error reading or parsing JSON file:', error);
       throw new Error('Failed to load data');
     }
-}
-
-export const getEmployerById = async (req, res) => {
-    try {
-        const data = await loadEmployerList(); 
-        const employerId = parseInt(req.params.id);
-        const employer = data.find(item => item.employer.id === employerId);
-        if (!employer) {
-          return res.status(404).json({ message: `Employer with ID ${employerId} not found` });
-        }
-        res.status(200).json(employer['employer']['profile']);
-      } catch (error) {
-        res.status(500).json({ message: 'Internal Server Error' });
-      }
-}
-
-export const getAllEmployerJobPostings = async (req, res) => {
-    try {
-        const data = await loadEmployerList(); 
-        const employerId = parseInt(req.params.id);
-        const employer = data.find(item => item.employer.id === employerId);
-        if (!employer) {
-          return res.status(404).json({ message: `Employer with ID ${employerId} not found` });
-        }
-        res.status(200).json(employer['employer']['jobs']);
-      } catch (error) {
-        res.status(500).json({ message: 'Internal Server Error' });
-      }
 }
 
 export const createJobPosting = async (req, res) => {

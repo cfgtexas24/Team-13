@@ -1,6 +1,7 @@
 import express from 'express';
 import { createApplication, getEmployeeById, getApplicationById, getAllApplications, getPotentialJobs, getAllJobPostings } from './controllers/EmployeeController.js';
-import { getEmployerById, getAllEmployerJobPostings, createJobPosting, getPotentialCandidates, getCandidateMatches, createEmployerRoute } from './controllers/EmployerController.js';
+import { getEmployerByIdRoute, createJobPosting, getPotentialCandidates, getCandidateMatches, createEmployerRoute, getAllEmployerJobPostingsRoute } from './controllers/EmployerController.js';
+import { createJobRoute } from './controllers/JobController.js';
 
 const router = express.Router();
 
@@ -13,11 +14,13 @@ router.get('/getPotentialJobs/:id', getPotentialJobs);
 router.get('/getAllJobPostings', getAllJobPostings);
 
 // Employer routes
-router.get('/getEmployerById/:id', getEmployerById);
-router.get('/getAllEmployerJobPostings/:id', getAllEmployerJobPostings);
-router.get('/createJobPosting', createJobPosting);
+router.get('/getEmployerById/:id', getEmployerByIdRoute);
 router.get('/getPotentialCandidates', getPotentialCandidates);
 router.get('/getCandidateMatches/:id', getCandidateMatches);
 router.post('/createEmployer', createEmployerRoute);
+router.get('/getAllEmployerJobPostings/:id', getAllEmployerJobPostingsRoute);
+
+// Job routes
+router.post('/createJob', createJobRoute);
 
 export default router;

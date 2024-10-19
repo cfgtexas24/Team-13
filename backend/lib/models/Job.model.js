@@ -25,5 +25,12 @@ const jobSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+    employer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Employer',
+        required: true
+    },
 });
+
+export const Job = mongoose.models.Job || mongoose.model('Job', jobSchema);

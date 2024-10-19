@@ -24,4 +24,32 @@ async function createEmployer(employer) {
     }
 }
 
-export { createEmployer };
+async function getEmployerById(id) {
+    try {
+        console.log('connecting to db...');
+        await connectToDB();
+        console.log('fetching employer...');
+        const employer = await Employer.findById(id);
+        console.log('employer:', employer);
+        return { success: true, employer };
+    } catch (error) {
+        console.error('error fetching employer:', error);
+        return { error: 'Failed to fetch employer', code: 'FETCH_FAILED' };
+    }
+}
+
+async function getAllEmployerJobPostings(employerId) {
+    try {
+        console.log('connecting to db...');
+        await connectToDB();
+        console.log('fetching jobs...');
+        const jobs = await Job.find({ employer: employerId });
+        console.log('jobs:', jobs);
+        return { success: true, jobs };
+    } catch (error) {
+        console.error('error fetching jobs:', error);
+        return { error: 'Failed to fetch jobs', code: 'FETCH_FAILED' };
+    }
+}
+
+export { createEmployer, getEmployerById, getAllEmployerJobPostings };
