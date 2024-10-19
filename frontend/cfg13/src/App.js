@@ -35,8 +35,8 @@ function App() {
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
           </Route>
-          <Route path="employee" element={<EmployeeHome />}>
-            <Route index element={<EmployeeDash />} />
+          <Route path="candidate" element={<EmployeeHome />}>
+            <Route index path="dashboard" element={<EmployeeDash />} />
           </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
