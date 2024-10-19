@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 
 const rooms = ['React', 'Node.js', 'Data Science', 'Machine Learning', 'UI/UX Design'];
 
-function Community() {
+function CandidateCommunity() {
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Join a Community!</h2>
+    <div style={{ padding: '20px', fontFamily: 'Roboto, sans-serif' }}>
+      <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Candidate: Join a Community!</h2>
       
-      {/* Use absolute path for chat rooms */}
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
         {rooms.map((room) => (
-          <Link key={room} to={`/employer/chat/${room}`} style={{ textDecoration: 'none' }}>
+          <Link key={room} to={`/candidate/community/${room}`} style={{ textDecoration: 'none' }}>
             <div style={{
               padding: '20px',
               border: '1px solid #ddd',
@@ -33,4 +32,4 @@ function Community() {
   );
 }
 
-export default Community;
+export default CandidateCommunity;

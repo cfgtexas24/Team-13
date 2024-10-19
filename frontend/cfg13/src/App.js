@@ -1,9 +1,7 @@
 import React from "react";
 import "./App.css";
-import Onboarding from "./components/Onboarding"
-
+import Onboarding from "./components/Onboarding";
 import { Routes, Route } from "react-router-dom";
-import { ThemeProvider, createTheme } from "@mui/material";
 import Layout from './components/layout';
 import Home from './components/home';
 import Profile from './components/profile';
@@ -11,8 +9,8 @@ import Jobs from './components/employer/jobs';
 import NoMatch from "./components/noMatch";
 import ProfileReturn from "./components/profileReturn";
 
-import EmployeeOnboarding from './forms/EmployeeOnboarding'
-import EmployerOnboarding from './forms/EmployerOnboarding'
+import EmployeeOnboarding from './forms/EmployeeOnboarding';
+import EmployerOnboarding from './forms/EmployerOnboarding';
 
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
@@ -22,8 +20,10 @@ import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 import Feedback from "./components/employer/feedback";
 import UserRoadmap from "./components/candidate/userRoadmap";
-import Community from "./components/employer/community";
-import ChatRoom from "./components/employer/chatroom";
+import EmployerCommunity from "./components/employer/employerCommunity"; 
+import EmployerChatRoom from "./components/employer/employerChatroom";  
+import CandidateCommunity from "./components/candidate/candidateCommunity"; 
+import CandidateChatRoom from "./components/candidate/candidateChatroom";  
 
 function App() {
   return (
@@ -31,29 +31,39 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          
+          {/* Onboarding Routes */}
           <Route path="onboarding" element={<Onboarding />}>
             <Route path="employee" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
 
+          {/* Employer Routes */}
           <Route path="employer" element={<EmployerHome />}>
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
-            <Route path="community" element={<Community />} />
-            <Route path="chat/:room" element={<ChatRoom />} />
+            
+            {/* Employer-Specific Community Routes */}
+            <Route path="community" element={<EmployerCommunity />} />
+            <Route path="community/:room" element={<EmployerChatRoom />} />
           </Route>
 
+          {/* Candidate Routes */}
           <Route path="candidate" element={<EmployeeHome />}>
-            <Route index path="dashboard" element={<EmployeeDash />} />
+            <Route index element={<EmployeeDash />} />
             <Route path="userRoadmap" element={<UserRoadmap />} />
+            
+            {/* Candidate-Specific Community Routes */}
+            <Route path="community" element={<CandidateCommunity />} />
+            <Route path="community/:room" element={<CandidateChatRoom />} />
           </Route>
 
+          {/* Other Common Routes */}
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
           <Route path="jobs" element={<Jobs />} />
-          <Route path="employerJobApplicants" element={<JobCandidates />} />
-          <Route path="*" element={<NoMatch />} /> 
+          <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
     </div>
