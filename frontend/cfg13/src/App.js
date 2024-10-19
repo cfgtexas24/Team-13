@@ -51,7 +51,7 @@ function App() {
             <Route path="createJobPage" element={<CreateJobPage />} />
             <Route path="community" element={<EmployerCommunity />} />
             <Route path="community/:room" element={<EmployerChatRoom />} />
-    
+            <Route path="jobCandidates/:jobID" element={<JobCandidates />} />
           </Route>
 
           <Route path="candidate" element={<EmployeeHome />}>

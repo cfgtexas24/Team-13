@@ -1,6 +1,6 @@
 import express from 'express';
 import { createApplication, getEmployeeById, getApplicationById, getAllApplications, getPotentialJobs, getAllJobPostings } from './controllers/EmployeeController.js';
-import { getEmployerById, getAllEmployerJobPostings, createJobPosting, getPotentialCandidates, getCandidateMatches, createEmployerRoute } from './controllers/EmployerController.js';
+import { getEmployerById, getAllEmployerJobPostings, createJobPosting, getPotentialCandidates, getCandidateMatches, createEmployerRoute, getApplicants } from './controllers/EmployerController.js';
 
 const router = express.Router();
 
@@ -19,5 +19,6 @@ router.get('/createJobPosting', createJobPosting);
 router.get('/getPotentialCandidates', getPotentialCandidates);
 router.get('/getCandidateMatches/:id', getCandidateMatches);
 router.post('/createEmployer', createEmployerRoute);
+router.get('/getApplicants/:id', getApplicants);
 
 export default router;

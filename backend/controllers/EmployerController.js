@@ -77,6 +77,17 @@ async function loadJobData() {
     }
 }
 
+async function loadApplicationListData() {
+    const dataPath = '../json_responses/application_list.json';
+    try {
+      const jsonData = await fs.readFile(dataPath, 'utf8');
+      return JSON.parse(jsonData);
+    } catch (error) {
+      console.error('Error reading or parsing JSON file:', error);
+      throw new Error('Failed to load data');
+    }
+}
+
 export const getEmployerById = async (req, res) => {
     try {
         const data = await loadEmployerList(); 
@@ -189,3 +200,19 @@ export const getCandidateMatches = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error in getCandidateMatches' });
   }
 };
+
+export const getApplicants = async (req, res) => {
+  try {
+    const data = await loadApplicationListData(); 
+    const company = req.params.id;
+    const applications = data.filter(item => item.Company === company);
+    const result = [];
+    for (let i = 0; i < applications.length; i++) {
+      applications[i]['Position Applied'] = "Frontend Developer"
+      result.push(applications[i]);
+    }
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
