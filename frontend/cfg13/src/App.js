@@ -7,16 +7,16 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import Layout from './components/layout';
 import Home from './components/home';
 import Profile from './components/profile';
-import Jobs from './components/jobs';
+import Jobs from './components/employer/jobs';
 import NoMatch from "./components/noMatch";
 import ProfileReturn from "./components/profileReturn";
 
 import EmployeeOnboarding from './forms/EmployeeOnboarding'
 import EmployerOnboarding from './forms/EmployerOnboarding'
+import CreateJobPage from "./components/employer/createJobPage";
 
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
-import CreateJobPage from "./components/employer/createJobPage";
 
 import EmployeeDash from "./components/candidate/EmployeeDash";
 import EmployeeHome from "./components/candidate/EmployeeHome";

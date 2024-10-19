@@ -3,6 +3,7 @@
     "employer": {
       "id": 67890,
       "profile": {
+        "id": 67890,
         "company_name": "Tech Solutions Inc.",
         "location": "San Francisco, CA",
         "industry": "Information Technology",
