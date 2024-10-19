@@ -37,50 +37,41 @@ const EmployeeOnboarding = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                    Your Profile
-                </h2>
-            </div>
+        <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto">
+                <h1 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">Your Profile</h1>
+                <div className="bg-white shadow rounded-lg">
+                    <form className="space-y-6 p-8" onSubmit={handleSubmit}>
+                        <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+                            <div>
+                                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+                                <input
+                                    id="name"
+                                    name="name"
+                                    type="text"
+                                    required
+                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                            </div>
 
-            <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <form className="space-y-6" onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                                Full Name
-                            </label>
-                            <input
-                                id="name"
-                                name="name"
-                                type="text"
-                                required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
+                            <div>
+                                <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label>
+                                <input
+                                    id="location"
+                                    name="location"
+                                    type="text"
+                                    required
+                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    value={location}
+                                    onChange={(e) => setLocation(e.target.value)}
+                                />
+                            </div>
                         </div>
 
                         <div>
-                            <label htmlFor="location" className="block text-sm font-medium text-gray-700">
-                                Location
-                            </label>
-                            <input
-                                id="location"
-                                name="location"
-                                type="text"
-                                required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                value={location}
-                                onChange={(e) => setLocation(e.target.value)}
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="skills" className="block text-sm font-medium text-gray-700">
-                                Skills (comma-separated)
-                            </label>
+                            <label htmlFor="skills" className="block text-sm font-medium text-gray-700">Skills (comma-separated)</label>
                             <input
                                 id="skills"
                                 name="skills"
@@ -94,9 +85,7 @@ const EmployeeOnboarding = () => {
 
                         <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
                             <div>
-                                <label htmlFor="dob" className="block text-sm font-medium text-gray-700">
-                                    Date of Birth
-                                </label>
+                                <label htmlFor="dob" className="block text-sm font-medium text-gray-700">Date of Birth</label>
                                 <input
                                     type="date"
                                     name="dob"
@@ -107,9 +96,7 @@ const EmployeeOnboarding = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
-                                    Gender
-                                </label>
+                                <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender</label>
                                 <select
                                     id="gender"
                                     name="gender"
@@ -126,9 +113,7 @@ const EmployeeOnboarding = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="ethnicity" className="block text-sm font-medium text-gray-700">
-                                    Ethnicity
-                                </label>
+                                <label htmlFor="ethnicity" className="block text-sm font-medium text-gray-700">Ethnicity</label>
                                 <input
                                     id="ethnicity"
                                     name="ethnicity"
@@ -142,11 +127,9 @@ const EmployeeOnboarding = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Certifications
-                            </label>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Certifications</label>
                             {certifications.map((cert, index) => (
-                                <div key={index} className="mb-4 p-4 border border-gray-200 rounded-md">                                      
+                                <div key={index} className="mb-4 p-4 border border-gray-200 rounded-md">
                                     <input
                                         placeholder="Certification Name"
                                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2"
@@ -166,12 +149,12 @@ const EmployeeOnboarding = () => {
                                         onChange={(e) => handleCertificationChange(index, 'dateIssued', e.target.value)}
                                     />
                                     <button
-                                          type="button"
-                                          onClick={() => setCertifications(certifications.filter((_, i) => i !== index))}
-                                          className="rounded text-xs float-right text-red-500"
-                                      >
-                                          Delete
-                                      </button>
+                                        type="button"
+                                        onClick={() => setCertifications(certifications.filter((_, i) => i !== index))}
+                                        className="rounded text-xs float-right text-red-500"
+                                    >
+                                        Delete
+                                    </button>
                                 </div>
                             ))}
                             <button
@@ -186,15 +169,15 @@ const EmployeeOnboarding = () => {
                         <div>
                             <button
                                 type="submit"
-                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-900 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
                             >
                                 Create Profile
                             </button>
                         </div>
                     </form>
 
-                    <div className="mt-6 text-center">
-                        <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    <div className="mt-2 pb-8 text-center">
+                        <Link to="/login" className="font-medium text-blue-900 hover:text-blue-900">
                             Already have an account? Login Here
                         </Link>
                     </div>
