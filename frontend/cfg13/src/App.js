@@ -11,6 +11,7 @@ import ProfileReturn from "./components/profileReturn";
 
 import EmployeeOnboarding from './forms/EmployeeOnboarding';
 import EmployerOnboarding from './forms/EmployerOnboarding';
+import CreateJobPage from "./components/employer/createJobPage";
 
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
@@ -20,6 +21,7 @@ import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 import Feedback from "./components/employer/feedback";
 import UserRoadmap from "./components/candidate/userRoadmap";
+import LandingPage from "./components/landingPage";
 import EmployerCommunity from "./components/employer/employerCommunity"; 
 import EmployerChatRoom from "./components/employer/employerChatroom";  
 import CandidateCommunity from "./components/candidate/candidateCommunity"; 
@@ -28,13 +30,13 @@ import CandidateChatRoom from "./components/candidate/candidateChatroom";
 function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
+      <Routes>x
+        <Route path="/" element={<LandingPage />}>
           <Route index element={<Home />} />
           
           {/* Onboarding Routes */}
           <Route path="onboarding" element={<Onboarding />}>
-            <Route path="employee" element={<EmployeeOnboarding />} />
+            <Route path="candidate" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
 
@@ -43,12 +45,15 @@ function App() {
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
+            <Route path="createJobPage" element={<CreateJobPage />} />
             <Route path="community" element={<EmployerCommunity />} />
             <Route path="community/:room" element={<EmployerChatRoom />} />
           </Route>
 
           {/* Candidate Routes */}
           <Route path="candidate" element={<EmployeeHome />}>
+            <Route index element={<EmployeeDash />} />
+            <Route path="jobs" element={<Jobs />} />
             <Route index element={<EmployeeDash />} />
             <Route path="userRoadmap" element={<UserRoadmap />} />
             <Route path="community" element={<CandidateCommunity />} />
