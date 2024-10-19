@@ -1,9 +1,17 @@
-const express = require('express');
+import express from 'express';
+import { getEmployeeById } from './controllers/EmployeeController.js';
+import { getEmployerById, getAllEmployerJobPostings, createJobPosting, getPotentialCandidates } from './controllers/EmployerController.js';
+
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
-    res.send("Hello Root Node")
-});
+// Employee routes
+router.get('/getEmployeeById/:id', getEmployeeById);
 
-module.exports = router;
+
+// Employer routes
+router.get('/getEmployerById/:id', getEmployerById);
+router.get('/getAllEmployerJobPostings/:id', getAllEmployerJobPostings);
+router.get('/createJobPosting', createJobPosting);
+router.get('/getPotentialCandidates', getPotentialCandidates);
+export default router;

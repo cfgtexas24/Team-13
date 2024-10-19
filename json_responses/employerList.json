@@ -1,4 +1,5 @@
-{
+[
+  {
     "employer": {
       "id": 67890,
       "profile": {
@@ -7,13 +8,13 @@
         "industry": "Information Technology",
         "description": "Tech Solutions Inc. specializes in providing cutting-edge software solutions for businesses."
       },
-    "target_employees": [
+      "target_employees": [
         "JavaScript",
         "Python",
         "Machine Learning",
         "Cloud Computing",
         "Project Management"
-    ],
+      ],
       "jobs": [
         {
           "job_id": 101,
@@ -26,7 +27,7 @@
             "max": 105000,
             "currency": "USD",
             "type": "Annual"
-            }
+          }
         },
         {
           "job_id": 102,
@@ -39,8 +40,9 @@
             "max": 105000,
             "currency": "USD",
             "type": "Annual"
-            }
+          }
         }
       ]
     }
   }
+]
