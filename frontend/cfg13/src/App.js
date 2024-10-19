@@ -24,8 +24,6 @@ import JobCandidates from "./components/employer/jobCandidates";
 import Feedback from "./components/employer/feedback";
 import UserRoadmap from "./components/candidate/userRoadmap";
 
-
-
 function App() {
   return (
     <div>
@@ -33,7 +31,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
-            <Route path="employee" element={<EmployeeOnboarding />} />
+            <Route path="candidate" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
           </Route>
 
