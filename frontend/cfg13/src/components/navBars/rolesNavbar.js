@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/rebirthLogo.png";
 
-const Navbar = () => {
+const RolesNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
@@ -71,13 +71,13 @@ const Navbar = () => {
                   to="/createjob"
                   className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 "
                 >
-                  Create Job
+                  Roadmap
                 </Link>
                 <Link
                   to="/feedback"
                   className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-yellow-200 "
                 >
-                  Feedback
+                  Profile
                 </Link>
               </div>
             </div>
@@ -136,13 +136,13 @@ const Navbar = () => {
               Team
             </Link>
             <Link
-              to="/projects"
+              to="/Roadmap"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Projects
             </Link>
             <Link
-              to="/calendar"
+              to="/Profile"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Calendar
@@ -154,4 +154,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default RolesNavbar;

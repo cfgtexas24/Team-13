@@ -1,34 +1,36 @@
 import React, { useState } from "react";
 
-function Jobs() {
+import RolesNavbar from "../navBars/rolesNavbar";
+
+function RolesJobs() {
   // Sample job application data
   const [applications] = useState([
     {
       id: 1,
-      title: "Frontend Developer",
-      company: "Fake Company 1",
-      salary: "$10000",
-      location: "Plano, TX",
+      title: "Intro to Software Development",
+      company: "Google",
+      payment: "$500",
+      Level: "1",
       url: "https://www.fakecompany1.com",
-      percentMatch: 85,
+      percentCompleted: 55,
     },
     {
       id: 2,
-      title: "Backend Developer",
-      company: "Fake Company 2",
-      salary: "$10000",
-      location: "Plano, TX",
+      title: "Intro to OOPS",
+      company: "Google",
+      payment: "$400",
+      Level: "1",
       url: "https://www.fakecompany2.com",
-      percentMatch: 90,
+      percentCompleted: 0,
     },
     {
       id: 3,
-      title: "Full Stack Developer",
-      company: "Fake Company 3",
-      salary: "$10000",
-      location: "Plano, TX",
+      title: "Intro to React",
+      company: "Google",
+      payment: "$700",
+      Level: "2",
       url: "https://www.fakecompany3.com",
-      percentMatch: 75,
+      percentCompleted: 10,
     },
   ]);
 
@@ -37,9 +39,19 @@ function Jobs() {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h2 style={{ textAlign: "center", color: "#333", marginBottom: "20px" }}>
-        Job Postings
-      </h2>
+      <RolesNavbar />
+
+      <h1
+        style={{
+          textAlign: "center",
+          color: "#333",
+          marginBottom: "20px",
+          marginTop: "20px",
+          fontsize: "6rem",
+        }}
+      >
+        Job Certificate Journey
+      </h1>
 
       {/* Cards Layout with Flexbox */}
       <div
@@ -79,13 +91,13 @@ function Jobs() {
                 <strong>Company:</strong> {app.company}
               </p>
               <p style={{ margin: "5px 0" }}>
-                <strong>Location:</strong> {app.location}
+                <strong>Payment:</strong> {app.payment}
               </p>
               <p style={{ margin: "5px 0" }}>
-                <strong>Salary:</strong> {app.salary}
+                <strong>Level:</strong> {app.Level}
               </p>
               <p style={{ margin: "5px 0" }}>
-                <strong>Percent Match:</strong> {app.percentMatch}%
+                <strong>Percent Completed:</strong> {app.percentCompleted}%
               </p>
               <a
                 href={app.url}
@@ -93,7 +105,7 @@ function Jobs() {
                 rel="noopener noreferrer"
                 style={{ color: "#007BFF", textDecoration: "none" }}
               >
-                View Job Posting
+                View More Information
               </a>
             </div>
           ))}
@@ -118,13 +130,16 @@ function Jobs() {
             <strong>Company:</strong> {selectedJob.company}
           </p>
           <p>
-            <strong>Location:</strong> {selectedJob.location}
+            <strong>Payment:</strong> {selectedJob.Payment}
           </p>
           <p>
-            <strong>Salary:</strong> {selectedJob.salary}
+            <strong>Level:</strong> {selectedJob.Level}
           </p>
           <p>
-            <strong>Percent Match:</strong> {selectedJob.percentMatch}%
+            <strong>URL:</strong> {selectedJob.URL}
+          </p>
+          <p>
+            <strong>Percent Completed:</strong> {selectedJob.percentCompleted}%
           </p>
           <a
             href={selectedJob.url}
@@ -140,4 +155,4 @@ function Jobs() {
   );
 }
 
-export default Jobs;
+export default RolesJobs;

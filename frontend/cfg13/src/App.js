@@ -1,19 +1,20 @@
 import React from "react";
 import "./App.css";
-import Onboarding from "./components/Onboarding"
+import Onboarding from "./components/Onboarding";
 
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
-import Layout from './components/layout';
-import Home from './components/home';
-import Profile from './components/profile';
-import Jobs from './components/jobs';
+import Layout from "./components/layout";
+import Home from "./components/home";
+import Profile from "./components/profile";
+import Jobs from "./components/jobs";
 import NoMatch from "./components/noMatch";
 import ProfileReturn from "./components/profileReturn";
 
-import EmployeeOnboarding from './forms/EmployeeOnboarding'
-import EmployerOnboarding from './forms/EmployerOnboarding'
+import EmployeeOnboarding from "./forms/EmployeeOnboarding";
+import EmployerOnboarding from "./forms/EmployerOnboarding";
 
+import RolesJobs from "./components/candidates/RolesRoadmaps";
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
 import JobCandidates from "./components/employer/jobCandidates";
@@ -23,6 +24,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="rolesRoadmap" element={<RolesJobs />} />
           <Route path="onboarding" element={<Onboarding />}>
             <Route path="employee" element={<EmployeeOnboarding />} />
             <Route path="employer" element={<EmployerOnboarding />} />
@@ -32,11 +34,12 @@ function App() {
             <Route path="dash" element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
           </Route>
+
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
           <Route path="jobs" element={<Jobs />} />
           <Route path="employerJobApplicants" element={<JobCandidates />} />
-          <Route path="*" element={<NoMatch />} /> 
+          <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
     </div>
