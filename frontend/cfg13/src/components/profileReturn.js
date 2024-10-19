@@ -165,10 +165,20 @@ const ProfileReturn = () => {
             <Typography variant="h6" gutterBottom>
               Certifications
             </Typography>
+
             {userData.certifications.map((cert, index) => (
-              <Box key={index} mb={4} p={3} border={1} borderColor="grey.300" borderRadius={2} style={{ padding: '20px' }}>
-                <Grid container spacing={3} alignItems="center">
-                  <Grid item xs={11}>
+              <Box 
+                key={index} 
+                mb={4} 
+                p={3} 
+                border={1} 
+                borderColor="grey.300" 
+                borderRadius={2} 
+                style={{ padding: '20px' }}
+              >
+                <Grid container spacing={2} alignItems="center">
+                  {/* Certification Name Field */}
+                  <Grid item xs={12} md={4}>
                     <TextField
                       label="Certification Name"
                       value={cert.name}
@@ -177,8 +187,11 @@ const ProfileReturn = () => {
                       variant="outlined"
                       disabled={!isEditable}
                       style={{ opacity: visibility.certifications ? 1 : 0.5 }}
-                      className="mb-3"
                     />
+                  </Grid>
+
+                  {/* Issued By Field */}
+                  <Grid item xs={12} md={4}>
                     <TextField
                       label="Issued By"
                       value={cert.issuedBy}
@@ -187,8 +200,11 @@ const ProfileReturn = () => {
                       variant="outlined"
                       disabled={!isEditable}
                       style={{ opacity: visibility.certifications ? 1 : 0.5 }}
-                      className="mb-3"
                     />
+                  </Grid>
+
+                  {/* Date Field */}
+                  <Grid item xs={12} md={3}>
                     <TextField
                       label="Date"
                       type="date"
@@ -201,8 +217,10 @@ const ProfileReturn = () => {
                       style={{ opacity: visibility.certifications ? 1 : 0.5 }}
                     />
                   </Grid>
-                  <Grid item xs={1}>
-                    <Box display="flex" flexDirection="column" alignItems="center">
+
+                  {/* Action Buttons: Visibility & Delete */}
+                  <Grid item xs={12} md={1} display="flex" justifyContent="center" alignItems="center">
+                    <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
                       <IconButton onClick={() => handleVisibilityToggle('certifications')}>
                         {visibility.certifications ? <VisibilityIcon /> : <VisibilityOffIcon />}
                       </IconButton>
@@ -214,15 +232,18 @@ const ProfileReturn = () => {
                 </Grid>
               </Box>
             ))}
+
             <Button
               variant="outlined"
               startIcon={<AddCircleOutlineIcon />}
               onClick={addCertification}
               color="primary"
+              sx={{ mt: 2 }}
             >
               Add Certification
             </Button>
           </Box>
+
 
           <Button
             variant="contained"
