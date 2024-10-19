@@ -1,0 +1,156 @@
+{
+  "jobs": [
+    {
+      "id": 101,
+      "company": "Slack",
+      "title": "Frontend Developer",
+      "salary": {
+        "min": 85000,
+        "max": 105000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "JavaScript",
+        "React",
+        "CSS",
+        "HTML",
+        "Git"
+      ],
+      "description": "We are looking for a Frontend Developer to design and implement user-facing features for our web applications.",
+      "location": "Remote",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-09-15",
+        "end_date": "2024-12-15"
+      },
+      "applied_count": 42,
+      "certifications": [
+        {
+          "name": "Certified Front-End Developer",
+          "issued_by": "W3Schools",
+          "date_issued": "2022-07-01"
+        },
+        {
+          "name": "React.js Developer Certification",
+          "issued_by": "Udemy",
+          "date_issued": "2023-03-12"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "company": "Zoom",
+      "title": "Backend Developer",
+      "salary": {
+        "min": 90000,
+        "max": 120000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Docker",
+        "Kubernetes"
+      ],
+      "description": "Seeking a Backend Developer to create robust and scalable backend services for Zoom's communication platform.",
+      "location": "San Francisco, CA",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-10-01",
+        "end_date": "2024-12-31"
+      },
+      "applied_count": 57,
+      "certifications": [
+        {
+          "name": "Certified Node.js Developer",
+          "issued_by": "Node.js Foundation",
+          "date_issued": "2022-09-10"
+        },
+        {
+          "name": "Kubernetes Certified Application Developer",
+          "issued_by": "CNCF",
+          "date_issued": "2023-05-18"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "company": "Google",
+      "title": "Cloud Solutions Architect",
+      "salary": {
+        "min": 115000,
+        "max": 145000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "Google Cloud Platform",
+        "Terraform",
+        "DevOps",
+        "CI/CD",
+        "Python"
+      ],
+      "description": "We are looking for a Cloud Solutions Architect to help design and implement cloud strategies for enterprise customers.",
+      "location": "Remote",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-09-20",
+        "end_date": "2024-11-30"
+      },
+      "applied_count": 78,
+      "certifications": [
+        {
+          "name": "Google Cloud Certified: Professional Cloud Architect",
+          "issued_by": "Google",
+          "date_issued": "2023-02-14"
+        },
+        {
+          "name": "HashiCorp Certified: Terraform Associate",
+          "issued_by": "HashiCorp",
+          "date_issued": "2022-11-10"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "company": "Amazon",
+      "title": "Data Scientist",
+      "salary": {
+        "min": 120000,
+        "max": 150000,
+        "currency": "USD",
+        "type": "Annual"
+      },
+      "skills": [
+        "Python",
+        "Machine Learning",
+        "SQL",
+        "Pandas",
+        "AWS"
+      ],
+      "description": "Looking for a Data Scientist to develop machine learning models and data-driven insights for Amazon's operations.",
+      "location": "Seattle, WA",
+      "duration": "Full-time",
+      "hiring_window": {
+        "start_date": "2024-11-01",
+        "end_date": "2025-01-31"
+      },
+      "applied_count": 65,
+      "certifications": [
+        {
+          "name": "AWS Certified Machine Learning - Specialty",
+          "issued_by": "Amazon",
+          "date_issued": "2023-04-05"
+        },
+        {
+          "name": "Certified Data Scientist",
+          "issued_by": "DataCamp",
+          "date_issued": "2022-08-22"
+        }
+      ]
+    }
+  ]
+}
