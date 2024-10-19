@@ -22,13 +22,13 @@ import EmployeeHome from "./components/candidate/EmployeeHome";
 import JobCandidates from "./components/employer/jobCandidates";
 import Feedback from "./components/employer/feedback";
 import UserRoadmap from "./components/candidate/userRoadmap";
-
-
+import Community from "./components/employer/community";
+import ChatRoom from "./components/employer/chatroom";
 
 function App() {
   return (
     <div>
-      <Routes>x
+      <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="onboarding" element={<Onboarding />}>
@@ -40,6 +40,8 @@ function App() {
             <Route index element={<EmployerDash />} />
             <Route path="jobCandidates" element={<JobCandidates />} />
             <Route path="feedbackForm" element={<Feedback />} />
+            <Route path="community" element={<Community />} />
+            <Route path="chat/:room" element={<ChatRoom />} />
           </Route>
 
           <Route path="candidate" element={<EmployeeHome />}>
@@ -59,4 +61,3 @@ function App() {
 }
 
 export default App;
-
