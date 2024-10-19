@@ -31,3 +31,34 @@ export const getEmployeeById = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
+
+// // fetch all applications
+// export const getAllApplications = async (req, res) => {
+//     try {
+//         const data = await loadData();
+//         res.json(data.applications);
+//     } catch (error) {
+//         console.error('Error fetching application data:', error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// }
+
+// fetch all applications by employee id
+export const getApplicationsById = async (req, res) => {
+    try {
+        const employeeId = parseInt(req.params.id, 10); // Convert to a number
+        const data = await loadData();
+        
+        const employee = data.employees.find((employee) => employee.id === employeeId); // Match the ID correctly
+        
+        if (!employee) {
+            res.status(404).json({ error: 'Employee not found' });
+            return;
+        }
+        
+        res.json(employee.applications);
+    } catch (error) {
+        console.error('Error fetching employee data:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
