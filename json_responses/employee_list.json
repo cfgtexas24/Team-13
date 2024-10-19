@@ -11,7 +11,7 @@
         "Cloud Computing"
       ],
       "demographic": {
-        "age": 30,
+        "dob": "1993-01-01",
         "gender": "Male",
         "ethnicity": "Asian"
       },
@@ -48,8 +48,8 @@
           "date_applied": "2023-08-15"
         }
       ]
-    },
-    {
+      },
+      {
       "id": 67890,
       "name": "Jane Smith",
       "location": "New York, NY",
@@ -60,7 +60,7 @@
         "Cloud Security"
       ],
       "demographic": {
-        "age": 28,
+        "dob": "1995-01-01",
         "gender": "Female",
         "ethnicity": "Hispanic"
       },
