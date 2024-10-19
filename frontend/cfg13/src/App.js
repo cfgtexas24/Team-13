@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
 import Onboarding from "./components/Onboarding";
-
-import Onboarding from "./components/Onboarding";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Profile from "./components/profile";
@@ -12,11 +10,8 @@ import ProfileReturn from "./components/profileReturn";
 
 import EmployeeOnboarding from "./forms/EmployeeOnboarding";
 import EmployerOnboarding from "./forms/EmployerOnboarding";
-import EmployeeOnboarding from "./forms/EmployeeOnboarding";
-import EmployerOnboarding from "./forms/EmployerOnboarding";
 import CreateJobPage from "./components/employer/createJobPage";
 
-import RolesJobs from "./components/candidates/RolesRoadmaps";
 import EmployerHome from "./components/employer/EmployerHome";
 import EmployerDash from "./components/employer/employerDash";
 import JobCandidates from "./components/employer/jobCandidates";
@@ -73,8 +68,6 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="profileReturn" element={<ProfileReturn />} />
           <Route path="jobs" element={<Jobs />} />
-          <Route path="*" element={<NoMatch />} />
-          <Route path="employerJobApplicants" element={<JobCandidates />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
 

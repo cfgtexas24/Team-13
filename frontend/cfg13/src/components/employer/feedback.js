@@ -76,62 +76,6 @@ const FeedbackForm = () => {
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
-    <div
-      style={{
-        padding: "20px",
-        fontFamily:
-          '"Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif',
-      }}
-    >
-      <h2
-        style={{
-          textAlign: "center",
-          color: "#333",
-          marginBottom: "20px",
-          fontSize: "30px",
-        }}
-      >
-        Employee Feedback Form
-      </h2>
-      <form
-        onSubmit={handleSubmit}
-        style={{ maxWidth: "400px", margin: "auto" }}
-      >
-        <div style={{ marginBottom: "15px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>
-            Your Name:
-          </label>
-          <input
-            type="text"
-            value={employerName}
-            onChange={(e) => setEmployerName(e.target.value)}
-            required
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "4px",
-              border: "1px solid #ddd",
-            }}
-          />
-        </div>
-
-        <div style={{ marginBottom: "15px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>
-            Employee's Name:
-          </label>
-          <input
-            type="text"
-            value={employeeName}
-            onChange={(e) => setEmployeeName(e.target.value)}
-            required
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "4px",
-              border: "1px solid #ddd",
-            }}
-          />
-        </div>
 
             <div>
               <label htmlFor="feedback" className="block text-sm font-medium text-gray-700">
