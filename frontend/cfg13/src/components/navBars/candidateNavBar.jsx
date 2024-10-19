@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
                 <Link
-                  to="dashboard"
+                  to=""
                   className={`rounded-md px-3 py-2 text-sm font-medium ${
                     isActive('candidate') ? 'bg-yellow-400 text-white' : 'text-black hover:bg-yellow-200'
                   }`}
