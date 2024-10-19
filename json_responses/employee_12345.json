@@ -1,7 +1,7 @@
 {
     "employee": {
       "id": 12345,
-      "name": "John Doe",
+      "name": "John Doe", 
       "location": "Austin, TX",
       "skills": [
         "JavaScript",
@@ -33,12 +33,18 @@
       ],
       "applications": [
         {
-          "app_name": "Slack",
-          "status": "Active"
+          "id" : 1,
+          "job_id": 101,
+          "company": "Slack",
+          "status": "Applied",
+          "date_applied": "2023-09-01"
         },
         {
-          "app_name": "Zoom",
-          "status": "Inactive"
+          "id" : 2,
+          "job_id": 102,
+          "company": "Zoom",
+          "status": "Rejected",
+          "date_applied": "2023-08-15"
         }
       ]
     }
