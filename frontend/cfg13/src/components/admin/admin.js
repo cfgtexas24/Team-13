@@ -12,8 +12,8 @@ import {
   Bar,
   Cell,
 } from "recharts";
+import Navbar from "../navBars/adminNavBar";
 
-// Sample Data
 const trendData = [
   { date: "2024-09-19", active: 320, inactive: 42, submitted: 180 },
   { date: "2024-09-21", active: 290, inactive: 37, submitted: 210 },
@@ -57,10 +57,10 @@ const yellowColors = ["#FEF08A", "#FDE047", "#FACC15", "#EAB308", "#CA8A04"];
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="ht-42 mb-10 text-2xl text-center">Admin Metrics</div>
+    <div className="min-h-screen bg-gray-100">
+        <Navbar />
+      <div className="ht-42 mt-4 mb-10 text-2xl text-center">Admin Metrics</div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        {/* Trend Over Time */}
         <div className="bg-white p-4 rounded-lg shadow-md">
           <h3 className="text-xl font-medium text-gray-800 mb-4">Trend Over Time</h3>
           <LineChart width={550} height={300} data={trendData}>
@@ -73,8 +73,6 @@ const Dashboard = () => {
             <Tooltip />
           </LineChart>
         </div>
-
-        {/* Ghost Jobs Over Time */}
         <div className="bg-white p-4 rounded-lg shadow-md">
           <h3 className="text-xl font-medium text-gray-800 mb-4">Ghost Jobs Over Time</h3>
           <BarChart width={550} height={300} data={ghostJobsData}>
@@ -89,8 +87,6 @@ const Dashboard = () => {
             </Bar>
           </BarChart>
         </div>
-
-        {/* Cumulative Trend */}
         <div className="bg-white p-4 rounded-lg shadow-md md:col-span-2">
           <h3 className="text-xl font-medium text-gray-800 mb-4">
             Cumulative Trend of Applications and Roles
